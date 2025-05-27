@@ -4,10 +4,57 @@
  */
 package Control;
 
+import Modelo.Competidor;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author hailen
  */
 public class ControlHilos {
+    private List<Competidor> hilos;
+
+    public ControlHilos(List<Competidor> competidores) {
+        this.hilos = competidores;
+    }
+    
+    public void iniciarHilos(){
+        for (Competidor hilo: hilos){
+            hilo.start();
+        }
+    }
+    
+    public void aplicarAccidente(String nombre) { //La validacion de si el competidor ya esta en estado de sleep o wait, se hace en el controlPrincipal / carrera, aqui solo se genera el accidente
+        for (Competidor c : hilos){
+            if(c.getNombre().equals(nombre)){
+                try {
+                    Competidor.sleep(new Random().nextInt(1000));
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(ControlHilos.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+    }
+    
+    public void impulsar(String nombre){ //
+        for(Competidor c: hilos){
+            
+            if(c.getNombre().equals(nombre)){
+                int posicionActual = c.getPosicionActual(); //Recibe la posicion actual del corredor
+                c.setPosicionActual(posicionActual + 50); //Hace que avance 50 pasos
+            }
+        }
+    }
+    
+    public void reiniciar(){
+        for (Competidor c : hilos){
+            c.interrupt();
+        }
+    }
+    
     
 }
