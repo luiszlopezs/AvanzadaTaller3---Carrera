@@ -4,14 +4,18 @@
  */
 package Modelo;
 
+import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author hailen
  */
-public class Competidor {
-    
+public class Competidor extends Thread {
+
     private String nombre;
-    private int posicionActual;
+    private int posicionActual = 0;
     private int cantidadVictorias;
     private int velocidad;
     private long tiempoLlegada;
@@ -21,9 +25,22 @@ public class Competidor {
         this.nombre = nombre;
         this.carrera = carrera;
     }
-    
-    public void incrementarVictorias(){
+
+    public void incrementarVictorias() {
         this.cantidadVictorias++;
+    }
+
+    @Override
+    public void run() {
+        while (!carrera.isEsFinalizada()) {
+            posicionActual += velocidad;
+            try {
+                Thread.sleep(new Random().nextInt(500));
+            } catch (InterruptedException ex) {
+                Logger.getLogger(Competidor.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+       
     }
 
     public String getNombre() {
@@ -73,8 +90,5 @@ public class Competidor {
     public void setCarrera(Carrera carrera) {
         this.carrera = carrera;
     }
-    
-    
-    
-    
+
 }
