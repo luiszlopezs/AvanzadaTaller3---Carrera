@@ -6,8 +6,8 @@ package Control;
 
 /**
  *
- * @author hailen
+ * @author sangr
  */
-public class Control {
+public class ControlCarrera {
     
 }
