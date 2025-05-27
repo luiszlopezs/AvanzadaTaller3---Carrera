@@ -21,9 +21,9 @@ public class Competidor extends Thread {
     private long tiempoLlegada;
     private Carrera carrera;
 
-    public Competidor(String nombre, Carrera carrera) {
+    public Competidor(String nombre) {
         this.nombre = nombre;
-        this.carrera = carrera;
+        
     }
 
     public void incrementarVictorias() {
