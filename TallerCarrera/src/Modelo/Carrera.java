@@ -11,13 +11,13 @@ package Modelo;
 public class  Carrera {
     
     private long tiempoInicial;
-    private long tiempoFinal;
+    private int duracionCarrera;
     private boolean esFinalizada = false;
-    private static int distanciaCarrera = 500;
+    private static int distanciaCarrera = 2000;
 
-    public Carrera(long tiempoInicial, long tiempoFinal, boolean esFinalizada) {
+    public Carrera(long tiempoInicial, int duracionCarrera, boolean esFinalizada) {
         this.tiempoInicial = tiempoInicial;
-        this.tiempoFinal = tiempoFinal;
+        this.duracionCarrera = duracionCarrera;
         this.esFinalizada = esFinalizada;
     }
     
@@ -28,7 +28,7 @@ public class  Carrera {
     
     
     public long asignarTiempo(){
-        return this.tiempoFinal - this.tiempoInicial;
+        return this.duracionCarrera - this.tiempoInicial;
     }
 
     public long getTiempoInicial() {
@@ -39,12 +39,12 @@ public class  Carrera {
         this.tiempoInicial = tiempoInicial;
     }
 
-    public long getTiempoFinal() {
-        return tiempoFinal;
+    public int getDuracionCarrera() {
+        return duracionCarrera;
     }
 
-    public void setTiempoFinal(long tiempoFinal) {
-        this.tiempoFinal = tiempoFinal;
+    public void setDuracionCarrera(int duracionCarrera) {
+        this.duracionCarrera = duracionCarrera;
     }
 
     public boolean isEsFinalizada() {

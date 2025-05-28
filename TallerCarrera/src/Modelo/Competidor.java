@@ -4,6 +4,7 @@
  */
 package Modelo;
 
+import Control.ControlPrincipal;
 import java.util.Random;
 import java.util.Scanner;
 import java.util.logging.Level;
@@ -25,10 +26,13 @@ public class Competidor extends Thread {
 
     private boolean isAccidentado = false;
     private int impulso = 50;
+    private ControlPrincipal cPrinc;
+   
 
-    public Competidor(String nombre, Carrera carrera) {
+    public Competidor(String nombre, Carrera carrera, ControlPrincipal cPrinc) {
         this.nombre = nombre;
         this.carrera = carrera;
+        this.cPrinc = cPrinc;
     }
 
     public void incrementarVictorias() {
@@ -41,46 +45,52 @@ public class Competidor extends Thread {
 
     public void run() {
         while (!carrera.isEsFinalizada()) {
+            
+            cPrinc.aplicarAccidente1();
+//            if (isAccidentado) {
+//                try {
+//                    Thread.sleep(1000 + (int) (Math.random() * 1000));
+//                } catch (InterruptedException ex) {
+//                    Logger.getLogger(Competidor.class.getName()).log(Level.SEVERE, null, ex);
+//                }
+//                isAccidentado = false;
+//            }
 
-//            int impulso = scany.nextInt();
+            cPrinc.aplicarImpulso2();
+//            if (nombre.equals("periquin")) {
+//                posicionActual += impulso;
+//                impulso = 0;
+//            }
 
-            if (isAccidentado) {
-                try {
-                    Thread.sleep(1000 + (int) (Math.random() * 1000));
-                } catch (InterruptedException ex) {
-                    Logger.getLogger(Competidor.class.getName()).log(Level.SEVERE, null, ex);
-                }
-                isAccidentado = false;
-            }
-
-            if (nombre.equals("usainbolt")) {
-                posicionActual += impulso;
-                impulso = 0;
-            }
-
-            posicionActual += velocidad;
-            try {
+            posicionActual += velocidad; //Aumentar de posicion de acuerdo al valor de velocidad
+            
+            try { //Correr con algunos descansos intermedios
                 System.out.println("correee");
                 Thread.sleep(new Random().nextInt(500));
             } catch (InterruptedException ex) {
                 Logger.getLogger(Competidor.class.getName()).log(Level.SEVERE, null, ex);
 
             }
-            if (posicionActual >= Carrera.getDistanciaCarrera()) {
-                this.tiempoLlegada = (int) (System.currentTimeMillis() - carrera.getTiempoInicial());
-                break;
-            }
+            
+            cPrinc.finalizarCarrera();
+//            if (posicionActual >= Carrera.getDistanciaCarrera()) {
+//                this.tiempoLlegada = (int) (System.currentTimeMillis() - carrera.getTiempoInicial());
+//                break;
+//            }
+
             //carrera.getControlCarrera().actualizarVista();  // si está delegado así
 
-            if (posicionActual >= carrera.getDistanciaCarrera()) {
-                long tiempoFin = System.currentTimeMillis();
+//            if (posicionActual >= carrera.getDistanciaCarrera()) {
+//                long tiempoFin = System.currentTimeMillis();
+//
+//                break;
+            //}
 
-                break;
-            }
-
-        }
+        } long tiempoFin = System.currentTimeMillis();
+//        this.tiempoLlegada = (int) (System.currentTimeMillis() - carrera.getTiempoInicial());
 
         System.out.println(this.nombre + " termino el run con tiempo " + this.tiempoLlegada);
+        
 
     }
 
@@ -117,7 +127,7 @@ public class Competidor extends Thread {
         this.velocidad = velocidad;
     }
 
-    public long getTiempoLlegada() {
+    public int getTiempoLlegada() {
         return tiempoLlegada;
     }
 
@@ -132,6 +142,24 @@ public class Competidor extends Thread {
     public void setCarrera(Carrera carrera) {
         this.carrera = carrera;
     }
+
+    public boolean isIsAccidentado() {
+        return isAccidentado;
+    }
+
+    public void setIsAccidentado(boolean isAccidentado) {
+        this.isAccidentado = isAccidentado;
+    }
+
+    public int getImpulso() {
+        return impulso;
+    }
+
+    public void setImpulso(int impulso) {
+        this.impulso = impulso;
+    }
+    
+    
 
     public void avanzar(int pasos) {
         posicionActual += pasos;

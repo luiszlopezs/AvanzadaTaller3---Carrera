@@ -29,6 +29,11 @@ public class ControlHilos {
 
         for (Competidor hilo : hilos) {
             hilo.start();
+            try {
+                hilo.join();
+            } catch (InterruptedException ex) {
+                Logger.getLogger(ControlHilos.class.getName()).log(Level.SEVERE, null, ex);
+            }
 
         }
     }
@@ -37,7 +42,15 @@ public class ControlHilos {
 
         for (Competidor c : hilos) {
             if (c.getNombre().equals(nombre)) {
-                c.simularAccidente();
+                if(c.isIsAccidentado()){
+                   try {
+                    c.sleep(1000 + (int) (Math.random() * 1000));
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(Competidor.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                c.setIsAccidentado(false);  
+                } 
+                //c.simularAccidente();
             }
         }
     }
@@ -45,7 +58,11 @@ public class ControlHilos {
     public void impulsar(String nombre) { //
         for (Competidor c : hilos) {
             if (c.getNombre().equals(nombre)) {
-                c.aplicarImpulso(50); //Hace que avance 50 pasos
+                
+                int posicionNueva = c.getPosicionActual() + c.getImpulso();
+                c.setPosicionActual(posicionNueva);
+            
+                //c.aplicarImpulso(50); //Hace que avance 50 pasos
             }
         }
     }

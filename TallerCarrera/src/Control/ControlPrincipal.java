@@ -36,12 +36,15 @@ public class ControlPrincipal {
     }
 
     public void finalizarCarrera() {
-        
-        cCarrera.getCarrera().setEsFinalizada(true);
+       cCompetidores.terminarCarrera();
+       //determinarGanadores();
+       
     }
 
     public void determinarGanadores() {
-        cCarrera.determinarGanadores();
+       cCarrera.determinarGanadores();
+       System.out.println("El ganador es: "+cCarrera.determinarGanadores().get(0));
+       
     }
 
     public ControlCarrera getcCarrera() {
