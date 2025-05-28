@@ -37,7 +37,7 @@ public class ControlPrincipal {
 
     public void finalizarCarrera() {
        cCompetidores.terminarCarrera();
-       //determinarGanadores();
+       determinarGanadores();
        
     }
 
