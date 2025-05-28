@@ -5,6 +5,7 @@
 package Modelo;
 
 import java.util.Random;
+import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -18,10 +19,13 @@ public class Competidor extends Thread {
     private int posicionActual = 0;
     private int cantidadVictorias;
     private int velocidad;
-    private long tiempoLlegada;
+    private int tiempoLlegada;
     private Carrera carrera;
 
-    public Competidor(String nombre,Carrera carrera) {
+    private boolean isAccidentado = false;
+    private int impulso = 50;
+
+    public Competidor(String nombre, Carrera carrera) {
         this.nombre = nombre;
         this.carrera = carrera;
     }
@@ -30,18 +34,49 @@ public class Competidor extends Thread {
         this.cantidadVictorias++;
     }
 
+    Scanner scany = new Scanner(System.in);
+
     @Override
     public void run() {
         while (!carrera.isEsFinalizada()) {
+
+//            int impulso = scany.nextInt();
+
+            if (isAccidentado) {
+                try {
+                    Thread.sleep(1000 + (int) (Math.random() * 1000));
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(Competidor.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                isAccidentado = false;
+            }
+
+            if (nombre.equals("usainbolt")) {
+                posicionActual += impulso;
+                impulso = 0;
+            }
+
             posicionActual += velocidad;
             try {
-                System.out.println("dormiiir");
+                System.out.println("correee");
                 Thread.sleep(new Random().nextInt(500));
             } catch (InterruptedException ex) {
                 Logger.getLogger(Competidor.class.getName()).log(Level.SEVERE, null, ex);
             }
+            if (posicionActual >= Carrera.getDistanciaCarrera()) {
+                this.tiempoLlegada = (int) (System.currentTimeMillis() - carrera.getTiempoInicial());
+                break;
+            }
+            //carrera.getControlCarrera().actualizarVista();  // si está delegado así
+
+            if (posicionActual >= carrera.getDistanciaCarrera()) {
+                long tiempoFin = System.currentTimeMillis();
+
+                break;
+            }
+
         }
-        System.out.println("termino el run");
+        System.out.println(this.nombre + " termino el run con tiempo " + this.tiempoLlegada);
     }
 
     public String getNombre() {
@@ -80,7 +115,7 @@ public class Competidor extends Thread {
         return tiempoLlegada;
     }
 
-    public void setTiempoLlegada(long tiempoLlegada) {
+    public void setTiempoLlegada(int tiempoLlegada) {
         this.tiempoLlegada = tiempoLlegada;
     }
 
@@ -90,6 +125,18 @@ public class Competidor extends Thread {
 
     public void setCarrera(Carrera carrera) {
         this.carrera = carrera;
+    }
+
+    public void avanzar(int pasos) {
+        posicionActual += pasos;
+    }
+
+    public void simularAccidente() {
+        isAccidentado = true;
+    }
+
+    public void aplicarImpulso(int velocidad) {
+        impulso += velocidad;
     }
 
 }

@@ -26,6 +26,11 @@ public class ControlCompetidores {
         Competidor competidor3 = new Competidor("Sonic",cPrinc.getcCarrera().getCarrera());
         Competidor competidor4 = new Competidor("Pikachu",cPrinc.getcCarrera().getCarrera()); 
         
+        competidor1.setVelocidad(59);
+        competidor2.setVelocidad(60);
+        competidor3.setVelocidad(61);
+        competidor4.setVelocidad(60);
+        
         competidores.add(competidor1);
         competidores.add(competidor2);
         competidores.add(competidor3);

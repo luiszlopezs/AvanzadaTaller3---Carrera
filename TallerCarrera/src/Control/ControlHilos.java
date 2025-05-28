@@ -29,37 +29,32 @@ public class ControlHilos {
         
         for (Competidor hilo: hilos){
             hilo.start();
-            
         }
     }
     
-    public void aplicarAccidente(String nombre) { //La validacion de si el competidor ya esta en estado de sleep o wait, se hace en el controlPrincipal / carrera, aqui solo se genera el accidente
-        for (Competidor c : hilos){
-            if(c.getNombre().equals(nombre)){
-                try {
-                    c.sleep(new Random().nextInt(1000));
-                } catch (InterruptedException ex) {
-                    Logger.getLogger(ControlHilos.class.getName()).log(Level.SEVERE, null, ex);
-                }
+     public void aplicarAccidente(String nombre) { //La validacion de si el competidor ya esta en estado de sleep o wait, se hace en el controlPrincipal / carrera, aqui solo se genera el accidente
+        for (Competidor c : hilos) {
+            if (c.getNombre().equals(nombre)) {
+                c.simularAccidente();
             }
         }
     }
-    
-    public void impulsar(String nombre){ //
-        for(Competidor c: hilos){
-            
-            if(c.getNombre().equals(nombre)){
-                int posicionActual = c.getPosicionActual(); //Recibe la posicion actual del corredor
-                c.setPosicionActual(posicionActual + 50); //Hace que avance 50 pasos
+
+    public void impulsar(String nombre) { //
+        for (Competidor c : hilos) {
+            if (c.getNombre().equals(nombre)) {
+                c.aplicarImpulso(50); //Hace que avance 50 pasos
             }
         }
     }
-    
-    public void reiniciar(){
-        for (Competidor c : hilos){
+    public void reiniciar() {
+        for (Competidor c : hilos) {
             c.interrupt();
         }
     }
-    
-    
+
 }
+    
+    
+    
+

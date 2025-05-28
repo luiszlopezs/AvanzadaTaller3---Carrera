@@ -9,7 +9,7 @@ package Control;
  * @author hailen
  */
 public class Launcher {
-    private ControlPrincipal cPrinc;
+
     public static void main(String[] args) {
          new ControlPrincipal();
     }
