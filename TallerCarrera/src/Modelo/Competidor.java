@@ -19,6 +19,9 @@ public class Competidor extends Thread {
     private int cantidadVictorias;
     private int velocidad;
     private long tiempoLlegada;
+    
+    private int impulso;
+    private boolean isAccidentado;
     private Carrera carrera;
 
     public Competidor(String nombre,Carrera carrera) {
@@ -31,18 +34,51 @@ public class Competidor extends Thread {
     }
 
     @Override
-    public void run() {
-        while (!carrera.isEsFinalizada()) {
-            posicionActual += velocidad;
+     public void run() {
+        long tiempoInicio = System.currentTimeMillis();
+
+        while (!carrera.isEsFinalizada() && posicionActual < carrera.getDistanciaCarrera()) {
             try {
-                System.out.println("dormiiir");
-                Thread.sleep(new Random().nextInt(500));
-            } catch (InterruptedException ex) {
-                Logger.getLogger(Competidor.class.getName()).log(Level.SEVERE, null, ex);
+                if (isAccidentado) {
+                    Thread.sleep(1000 + (int)(Math.random() * 1000));
+                    isAccidentado = false;
+                }
+
+                int avance = 1 + (int)(Math.random() * 5);
+                if (impulso > 0) {
+                    avance += impulso;
+                    impulso = 0;
+                }
+
+                avanzar(avance);
+                //carrera.getControlCarrera().actualizarVista();  // si está delegado así
+
+                if (posicionActual >= carrera.getDistanciaCarrera()) {
+                    long tiempoFin = System.currentTimeMillis();
+                    carrera.notificarLlegada(this);
+                    break;
+                }
+
+                Thread.sleep(100 + (int)(Math.random() * 300));
+
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
         }
-        System.out.println("termino el run");
     }
+
+    public void avanzar(int pasos) {
+        posicionActual += pasos;
+    }
+
+    public void simularAccidente() {
+        isAccidentado = true;
+    }
+
+    public void aplicarImpulso(int pasos) {
+        impulso += pasos;
+    }
+     
 
     public String getNombre() {
         return nombre;
@@ -91,5 +127,14 @@ public class Competidor extends Thread {
     public void setCarrera(Carrera carrera) {
         this.carrera = carrera;
     }
+
+    public boolean isIsAccidentado() {
+        return isAccidentado;
+    }
+
+    public void setIsAccidentado(boolean isAccidentado) {
+        this.isAccidentado = isAccidentado;
+    }
+    
 
 }

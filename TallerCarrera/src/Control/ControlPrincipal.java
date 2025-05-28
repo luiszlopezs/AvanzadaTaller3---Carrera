@@ -28,7 +28,6 @@ public class ControlPrincipal {
     }
 
     public void aplicarAccidente1() {
-        
         cHilos.aplicarAccidente("Usain Bolt");
     }
 
@@ -37,6 +36,7 @@ public class ControlPrincipal {
     }
 
     public void finalizarCarrera() {
+        
         cCarrera.getCarrera().setEsFinalizada(true);
     }
 
