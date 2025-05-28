@@ -6,7 +6,7 @@ package Vista;
 
 /**
  *
- * @author hailen
+ * @author julian
  */
 public class Vista {
     
