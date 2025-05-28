@@ -21,6 +21,7 @@ public class ControlPrincipal {
         cCompetidores = new ControlCompetidores(this);
         cHilos = new ControlHilos(this, cCompetidores.getCompetidores());
         iniciarCarrera();
+        determinarGanadores();
     }
 
     public void iniciarCarrera() {
@@ -43,7 +44,7 @@ public class ControlPrincipal {
 
     public void determinarGanadores() {
        cCarrera.determinarGanadores();
-       System.out.println("El ganador es: "+cCarrera.determinarGanadores().get(0));
+       System.out.println("El ganador es: "+cCarrera.determinarGanadores().get(0).getNombre());
        
     }
 
