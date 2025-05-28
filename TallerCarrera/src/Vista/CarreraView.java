@@ -39,25 +39,27 @@ public class CarreraView extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("CarreraView");
+        setMaximumSize(new java.awt.Dimension(845, 560));
+        setMinimumSize(new java.awt.Dimension(845, 560));
 
         PanelFondo.setBackground(new java.awt.Color(255, 248, 220));
         PanelFondo.setLayout(null);
 
         lblPikachu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/img/Pikachu.gif"))); // NOI18N
         PanelFondo.add(lblPikachu);
-        lblPikachu.setBounds(50, 270, 120, 100);
+        lblPikachu.setBounds(0, 400, 140, 100);
 
         lblSonic.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/img/Sonic.gif"))); // NOI18N
         PanelFondo.add(lblSonic);
-        lblSonic.setBounds(10, 320, 110, 110);
+        lblSonic.setBounds(30, 340, 120, 110);
 
         lblGoku.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/img/Goku.gif"))); // NOI18N
         PanelFondo.add(lblGoku);
-        lblGoku.setBounds(40, 390, 100, 110);
+        lblGoku.setBounds(30, 270, 140, 110);
 
-        lblNyanCat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/img/NyanCat.gif"))); // NOI18N
+        lblNyanCat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/img/nyancatt.gif"))); // NOI18N
         PanelFondo.add(lblNyanCat);
-        lblNyanCat.setBounds(40, 150, 100, 70);
+        lblNyanCat.setBounds(20, 150, 140, 92);
 
         lblImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/img/ImagenFondo.png"))); // NOI18N
         PanelFondo.add(lblImagen);
@@ -99,11 +101,11 @@ public class CarreraView extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(PanelFondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(PanelFondo, javax.swing.GroupLayout.DEFAULT_SIZE, 845, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(PanelFondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(PanelFondo, javax.swing.GroupLayout.DEFAULT_SIZE, 560, Short.MAX_VALUE)
         );
 
         pack();
