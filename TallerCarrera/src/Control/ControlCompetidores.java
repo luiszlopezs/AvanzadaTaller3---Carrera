@@ -14,15 +14,17 @@ import java.util.List;
  * @author sangr
  */
 public class ControlCompetidores {
+    private ControlPrincipal cPrinc;
     private ArrayList<Competidor> competidores;
 
-    public ControlCompetidores() {
+    public ControlCompetidores(ControlPrincipal cPrinc) {
+        this.cPrinc = cPrinc;
         competidores = new ArrayList<>();
         
-        Competidor competidor1 = new Competidor("Usain Bolt"); 
-        Competidor competidor2 = new Competidor("Periquin"); 
-        Competidor competidor3 = new Competidor("X");
-        Competidor competidor4 = new Competidor("Y"); 
+        Competidor competidor1 = new Competidor("Usain Bolt",cPrinc.getcCarrera().getCarrera()); 
+        Competidor competidor2 = new Competidor("Periquin",cPrinc.getcCarrera().getCarrera()); 
+        Competidor competidor3 = new Competidor("Sonic",cPrinc.getcCarrera().getCarrera());
+        Competidor competidor4 = new Competidor("Pikachu",cPrinc.getcCarrera().getCarrera()); 
         
         competidores.add(competidor1);
         competidores.add(competidor2);
@@ -34,12 +36,15 @@ public class ControlCompetidores {
         for(Competidor competidor: competidores){
             competidor.interrupt(); //Lo frena si estaba en ejecucion
             competidor.setPosicionActual(0); //Recoloca a los jugadores al inicio de la carrera
+            competidor.setTiempoLlegada(0);
         }
     }
 
     public ArrayList<Competidor> getCompetidores() {
         return competidores;
     }
+    
+
     
     
     

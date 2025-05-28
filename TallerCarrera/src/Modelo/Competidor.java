@@ -21,9 +21,9 @@ public class Competidor extends Thread {
     private long tiempoLlegada;
     private Carrera carrera;
 
-    public Competidor(String nombre) {
+    public Competidor(String nombre,Carrera carrera) {
         this.nombre = nombre;
-        
+        this.carrera = carrera;
     }
 
     public void incrementarVictorias() {
@@ -35,12 +35,13 @@ public class Competidor extends Thread {
         while (!carrera.isEsFinalizada()) {
             posicionActual += velocidad;
             try {
+                System.out.println("dormiiir");
                 Thread.sleep(new Random().nextInt(500));
             } catch (InterruptedException ex) {
                 Logger.getLogger(Competidor.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-       
+        System.out.println("termino el run");
     }
 
     public String getNombre() {

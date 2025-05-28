@@ -16,15 +16,20 @@ import java.util.logging.Logger;
  * @author hailen
  */
 public class ControlHilos {
+    private ControlPrincipal cPrinc;
     private List<Competidor> hilos;
 
-    public ControlHilos(List<Competidor> competidores) {
+    public ControlHilos(ControlPrincipal cPrinc, List<Competidor> competidores) {
+        this.cPrinc = cPrinc;
         this.hilos = competidores;
     }
     
     public void iniciarHilos(){
+        
+        
         for (Competidor hilo: hilos){
             hilo.start();
+            
         }
     }
     
@@ -32,7 +37,7 @@ public class ControlHilos {
         for (Competidor c : hilos){
             if(c.getNombre().equals(nombre)){
                 try {
-                    Competidor.sleep(new Random().nextInt(1000));
+                    c.sleep(new Random().nextInt(1000));
                 } catch (InterruptedException ex) {
                     Logger.getLogger(ControlHilos.class.getName()).log(Level.SEVERE, null, ex);
                 }
