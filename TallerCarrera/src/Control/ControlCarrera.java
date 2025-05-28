@@ -35,7 +35,7 @@ public class ControlCarrera {
     
     public ArrayList<Competidor> determinarGanadores(){ //Se recibe la lista de competidores, y si el tiempo de llegada del competidor coincide con el tiempo de la carrera, entonces este se añadirá a la lista de ganadores
         ArrayList<Competidor> competidores = cPrinc.getcCompetidores().getCompetidores();
-        ArrayList<Competidor> ganadores = null;
+        ArrayList<Competidor> ganadores = new ArrayList<>();
         for(Competidor c : competidores){
             if(c.getTiempoLlegada() == carrera.getDuracionCarrera()){
                 
