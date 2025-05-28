@@ -32,8 +32,9 @@ public class ControlHilos {
 
         }
     }
+    
+     public void aplicarAccidente(String nombre) { //La validacion de si el competidor ya esta en estado de sleep o wait, se hace en el controlPrincipal / carrera, aqui solo se genera el accidente
 
-    public void aplicarAccidente(String nombre) { //La validacion de si el competidor ya esta en estado de sleep o wait, se hace en el controlPrincipal / carrera, aqui solo se genera el accidente
         for (Competidor c : hilos) {
             if (c.getNombre().equals(nombre)) {
                 c.simularAccidente();
@@ -55,3 +56,7 @@ public class ControlHilos {
     }
 
 }
+    
+    
+    
+

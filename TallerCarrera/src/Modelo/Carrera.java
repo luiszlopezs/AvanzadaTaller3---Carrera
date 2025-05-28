@@ -8,12 +8,12 @@ package Modelo;
  *
  * @author hailen
  */
-public class Carrera {
+public class  Carrera {
     
     private long tiempoInicial;
     private long tiempoFinal;
     private boolean esFinalizada = false;
-    private static int distanciaCarrera = 5048;
+    private static int distanciaCarrera = 500;
 
     public Carrera(long tiempoInicial, long tiempoFinal, boolean esFinalizada) {
         this.tiempoInicial = tiempoInicial;
@@ -23,7 +23,7 @@ public class Carrera {
     
     
 
-    public Carrera() {
+    public Carrera() {  
     }
     
     

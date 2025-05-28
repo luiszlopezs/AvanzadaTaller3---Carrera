@@ -11,23 +11,31 @@ import Modelo.Carrera;
  * @author hailen
  */
 public class ControlCarrera {
-
+    
     private ControlPrincipal cPrinc;
     private Carrera carrera;
-
-    public ControlCarrera(ControlPrincipal cPrinc) {
+    
+    
+    public ControlCarrera(ControlPrincipal cPrinc){
         this.cPrinc = cPrinc;
         carrera = new Carrera();
-
+        carrera.setTiempoInicial(System.currentTimeMillis());
+        
     }
 
     public Carrera getCarrera() {
         return carrera;
     }
+    
 
-    public void determinarGanadores() {
-        
-
+    
+    public synchronized void finalizarCarrera(){
+        carrera.isEsFinalizada();
     }
-
+    
+    public void determinarGanadores(){
+        
+        
+    }
+    
 }
