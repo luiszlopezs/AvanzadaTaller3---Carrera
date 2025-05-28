@@ -16,6 +16,7 @@ import java.util.logging.Logger;
  * @author hailen
  */
 public class ControlHilos {
+
     private ControlPrincipal cPrinc;
     private List<Competidor> hilos;
 
@@ -23,19 +24,33 @@ public class ControlHilos {
         this.cPrinc = cPrinc;
         this.hilos = competidores;
     }
-    
-    public void iniciarHilos(){
-        
-        
-        for (Competidor hilo: hilos){
+
+    public void iniciarHilos() {
+
+        for (Competidor hilo : hilos) {
             hilo.start();
+            try {
+                hilo.join();
+            } catch (InterruptedException ex) {
+                Logger.getLogger(ControlHilos.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
         }
     }
     
      public void aplicarAccidente(String nombre) { //La validacion de si el competidor ya esta en estado de sleep o wait, se hace en el controlPrincipal / carrera, aqui solo se genera el accidente
+
         for (Competidor c : hilos) {
             if (c.getNombre().equals(nombre)) {
-                c.simularAccidente();
+                if(c.isIsAccidentado()){
+                   try {
+                    c.sleep(1000 + (int) (Math.random() * 1000));
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(Competidor.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                c.setIsAccidentado(false);  
+                } 
+                //c.simularAccidente();
             }
         }
     }
@@ -43,7 +58,11 @@ public class ControlHilos {
     public void impulsar(String nombre) { //
         for (Competidor c : hilos) {
             if (c.getNombre().equals(nombre)) {
-                c.aplicarImpulso(50); //Hace que avance 50 pasos
+                
+                int posicionNueva = c.getPosicionActual() + c.getImpulso();
+                c.setPosicionActual(posicionNueva);
+            
+                //c.aplicarImpulso(50); //Hace que avance 50 pasos
             }
         }
     }
