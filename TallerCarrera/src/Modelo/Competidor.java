@@ -25,7 +25,8 @@ public class Competidor extends Thread {
     private Carrera carrera;
 
     private boolean isAccidentado = false;
-    private int impulso = 50;
+    private boolean isImpulsado = false;
+    private int impulso = 2;
     private ControlPrincipal cPrinc;
    
 
@@ -65,7 +66,7 @@ public class Competidor extends Thread {
             posicionActual += velocidad; //Aumentar de posicion de acuerdo al valor de velocidad
             
             try { //Correr con algunos descansos intermedios
-                System.out.println("correee");
+                System.out.println("correee" + this.nombre);
                 Thread.sleep(new Random().nextInt(500));
             } catch (InterruptedException ex) {
                 Logger.getLogger(Competidor.class.getName()).log(Level.SEVERE, null, ex);
@@ -161,16 +162,15 @@ public class Competidor extends Thread {
     
     
 
-    public void avanzar(int pasos) {
-        posicionActual += pasos;
+
+    public boolean isIsImpulsado() {
+        return isImpulsado;
     }
 
-    public void simularAccidente() {
-        isAccidentado = true;
+    public void setIsImpulsado(boolean isImpulsado) {
+        this.isImpulsado = isImpulsado;
     }
-
-    public void aplicarImpulso(int velocidad) {
-        impulso += velocidad;
-    }
+    
+    
 
 }

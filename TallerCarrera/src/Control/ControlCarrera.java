@@ -21,7 +21,7 @@ public class ControlCarrera {
     public ControlCarrera(ControlPrincipal cPrinc){
         this.cPrinc = cPrinc;
         carrera = new Carrera();
-        carrera.setTiempoInicial(System.currentTimeMillis());
+        //carrera.setTiempoInicial(System.currentTimeMillis());
         
     }
 
@@ -29,9 +29,7 @@ public class ControlCarrera {
         return carrera;
     }
     
-    public void finalizarCarrera(){
-        carrera.isEsFinalizada();
-    }
+
     
     public ArrayList<Competidor> determinarGanadores(){ //Se recibe la lista de competidores, y si el tiempo de llegada del competidor coincide con el tiempo de la carrera, entonces este se añadirá a la lista de ganadores
         ArrayList<Competidor> competidores = cPrinc.getcCompetidores().getCompetidores();

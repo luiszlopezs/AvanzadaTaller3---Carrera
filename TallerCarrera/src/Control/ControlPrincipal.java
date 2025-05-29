@@ -15,37 +15,66 @@ public class ControlPrincipal {
     private ControlCarrera cCarrera;
     private ControlCompetidores cCompetidores;
     private ControlHilos cHilos;
+    private ControlVentana cVentana;
 
     public ControlPrincipal() {
+        cVentana = new ControlVentana(this);
         cCarrera = new ControlCarrera(this);
         cCompetidores = new ControlCompetidores(this);
         cHilos = new ControlHilos(this, cCompetidores.getCompetidores());
-        iniciarCarrera();
-        determinarGanadores();
+
     }
 
     public void iniciarCarrera() {
+        getcCarrera().getCarrera().setTiempoInicial(System.currentTimeMillis());
+        new Thread(() -> {
+        cHilos.iniciarHilos();
+        }).start();
+        determinarGanadores();
+    }
+
+    public void reiniciarCarrera() {
+        for (int i = 0; i <= cCompetidores.getCompetidores().size(); i++) {
+            cCompetidores.getCompetidores().get(i).setPosicionActual(0);
+            cCompetidores.getCompetidores().get(i).setTiempoLlegada(0);
+        }
+
+        cCarrera.getCarrera().setDuracionCarrera(0);
+        getcCarrera().getCarrera().setTiempoInicial(System.currentTimeMillis());
+        cCarrera.getCarrera().setEsFinalizada(false);
         cHilos.iniciarHilos();
     }
 
+    public void setearAccidenteTrue() {
+        cCompetidores.getCompetidores().get(0).setIsAccidentado(true);
+    }
+
     public void aplicarAccidente1() {
-        cHilos.aplicarAccidente("Usain Bolt");
+        if (cCompetidores.getCompetidores().get(0).isIsAccidentado()) {
+            cHilos.aplicarAccidente("Usain Bolt");
+        }
+
+    }
+    
+    public void setearImpulsoTrue(){
+        cCompetidores.getCompetidores().get(1).setIsImpulsado(true);
     }
 
     public void aplicarImpulso2() {
-        cHilos.impulsar("Periquin");
+        if (cCompetidores.getCompetidores().get(1).isIsImpulsado()) {
+            cHilos.impulsar("Periquin");
+        }
     }
 
-    public void finalizarCarrera() {
-       cCompetidores.terminarCarrera();
-       //determinarGanadores();
-       
+    public synchronized void finalizarCarrera() {
+        cCompetidores.terminarCarrera();
+
     }
 
     public void determinarGanadores() {
-       cCarrera.determinarGanadores();
-       System.out.println("El ganador es: "+cCarrera.determinarGanadores().get(0).getNombre());
-       
+        cCarrera.determinarGanadores();
+        System.out.println("El ganador es: " + cCarrera.determinarGanadores().get(0).getNombre());
+
     }
 
     public ControlCarrera getcCarrera() {

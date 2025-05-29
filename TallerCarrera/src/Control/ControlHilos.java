@@ -29,27 +29,33 @@ public class ControlHilos {
 
         for (Competidor hilo : hilos) {
             hilo.start();
-            try {
-                hilo.join();
-            } catch (InterruptedException ex) {
-                Logger.getLogger(ControlHilos.class.getName()).log(Level.SEVERE, null, ex);
-            }
 
         }
+
+        try {
+            hilos.get(0).join();
+            hilos.get(1).join();
+            hilos.get(2).join();
+            hilos.get(3).join();
+        } catch (InterruptedException ex) {
+            Logger.getLogger(ControlHilos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }
-    
-     public void aplicarAccidente(String nombre) { //La validacion de si el competidor ya esta en estado de sleep o wait, se hace en el controlPrincipal / carrera, aqui solo se genera el accidente
+
+    public void aplicarAccidente(String nombre) { //La validacion de si el competidor ya esta en estado de sleep o wait, se hace en el controlPrincipal / carrera, aqui solo se genera el accidente
 
         for (Competidor c : hilos) {
             if (c.getNombre().equals(nombre)) {
-                if(c.isIsAccidentado()){
-                   try {
-                    c.sleep(1000 + (int) (Math.random() * 1000));
-                } catch (InterruptedException ex) {
-                    Logger.getLogger(Competidor.class.getName()).log(Level.SEVERE, null, ex);
+                if (!c.isIsAccidentado()) {
+                    try {
+                        c.sleep(1000 + (int) (Math.random() * 1000));
+                    } catch (InterruptedException ex) {
+                        Logger.getLogger(Competidor.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    System.out.println("ayy me pegue");
+                    c.setIsAccidentado(false);
                 }
-                c.setIsAccidentado(false);  
-                } 
                 //c.simularAccidente();
             }
         }
@@ -58,14 +64,16 @@ public class ControlHilos {
     public void impulsar(String nombre) { //
         for (Competidor c : hilos) {
             if (c.getNombre().equals(nombre)) {
-                
+
                 int posicionNueva = c.getPosicionActual() + c.getImpulso();
                 c.setPosicionActual(posicionNueva);
-            
+                
+                c.setIsImpulsado(false);
                 //c.aplicarImpulso(50); //Hace que avance 50 pasos
             }
         }
     }
+
     public void reiniciar() {
         for (Competidor c : hilos) {
             c.interrupt();
@@ -73,7 +81,3 @@ public class ControlHilos {
     }
 
 }
-    
-    
-    
-
