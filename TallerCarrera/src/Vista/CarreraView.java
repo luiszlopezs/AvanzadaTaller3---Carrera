@@ -4,16 +4,24 @@
  */
 package Vista;
 
+import Control.ControlVentana;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+
 /**
  *
  * @author jjuan
  */
 public class CarreraView extends javax.swing.JFrame {
-
+    
+    
+    private ControlVentana cVentana;
     /**
      * Creates new form CarreraView
      */
-    public CarreraView() {
+    public CarreraView(ControlVentana cVentana) {
+        this.cVentana = cVentana;
+        
         initComponents();
     }
 
@@ -28,8 +36,8 @@ public class CarreraView extends javax.swing.JFrame {
 
         PanelFondo = new javax.swing.JPanel();
         lblPikachu = new javax.swing.JLabel();
-        lblSonic = new javax.swing.JLabel();
         lblGoku = new javax.swing.JLabel();
+        lblSonic = new javax.swing.JLabel();
         lblNyanCat = new javax.swing.JLabel();
         lblImagen = new javax.swing.JLabel();
         btnIniciar = new javax.swing.JButton();
@@ -39,7 +47,6 @@ public class CarreraView extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("CarreraView");
-        setMaximumSize(new java.awt.Dimension(845, 560));
         setMinimumSize(new java.awt.Dimension(845, 560));
 
         PanelFondo.setBackground(new java.awt.Color(255, 248, 220));
@@ -49,13 +56,13 @@ public class CarreraView extends javax.swing.JFrame {
         PanelFondo.add(lblPikachu);
         lblPikachu.setBounds(0, 400, 140, 100);
 
-        lblSonic.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/img/Sonic.gif"))); // NOI18N
-        PanelFondo.add(lblSonic);
-        lblSonic.setBounds(30, 340, 120, 110);
-
         lblGoku.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/img/Goku.gif"))); // NOI18N
         PanelFondo.add(lblGoku);
-        lblGoku.setBounds(30, 270, 140, 110);
+        lblGoku.setBounds(20, 340, 140, 110);
+
+        lblSonic.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/img/Sonic.gif"))); // NOI18N
+        PanelFondo.add(lblSonic);
+        lblSonic.setBounds(30, 250, 120, 110);
 
         lblNyanCat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/img/nyancatt.gif"))); // NOI18N
         PanelFondo.add(lblNyanCat);
@@ -114,37 +121,74 @@ public class CarreraView extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CarreraView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CarreraView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CarreraView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CarreraView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new CarreraView().setVisible(true);
-            }
-        });
+
+    public JButton getBtnAccidente() {
+        return btnAccidente;
     }
+
+    public void setBtnAccidente(JButton btnAccidente) {
+        this.btnAccidente = btnAccidente;
+    }
+
+    public JButton getBtnImpulsar() {
+        return btnImpulsar;
+    }
+
+    public void setBtnImpulsar(JButton btnImpulsar) {
+        this.btnImpulsar = btnImpulsar;
+    }
+
+    public JButton getBtnIniciar() {
+        return btnIniciar;
+    }
+
+    public void setBtnIniciar(JButton btnIniciar) {
+        this.btnIniciar = btnIniciar;
+    }
+
+    public JButton getBtnSalir() {
+        return btnSalir;
+    }
+
+    public void setBtnSalir(JButton btnSalir) {
+        this.btnSalir = btnSalir;
+    }
+
+    public JLabel getLblGoku() {
+        return lblGoku;
+    }
+
+    public void setLblGoku(JLabel lblGoku) {
+        this.lblGoku = lblGoku;
+    }
+
+    public JLabel getLblNyanCat() {
+        return lblNyanCat;
+    }
+
+    public void setLblNyanCat(JLabel lblNyanCat) {
+        this.lblNyanCat = lblNyanCat;
+    }
+
+    public JLabel getLblPikachu() {
+        return lblPikachu;
+    }
+
+    public void setLblPikachu(JLabel lblPikachu) {
+        this.lblPikachu = lblPikachu;
+    }
+
+    public JLabel getLblSonic() {
+        return lblSonic;
+    }
+
+    public void setLblSonic(JLabel lblSonic) {
+        this.lblSonic = lblSonic;
+    }
+    
+    
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PanelFondo;

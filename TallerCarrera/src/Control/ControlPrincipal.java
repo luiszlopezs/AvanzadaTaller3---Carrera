@@ -15,18 +15,22 @@ public class ControlPrincipal {
     private ControlCarrera cCarrera;
     private ControlCompetidores cCompetidores;
     private ControlHilos cHilos;
+    private ControlVentana cVentana;
 
     public ControlPrincipal() {
+        cVentana = new ControlVentana(this);
         cCarrera = new ControlCarrera(this);
         cCompetidores = new ControlCompetidores(this);
         cHilos = new ControlHilos(this, cCompetidores.getCompetidores());
-        iniciarCarrera();
-        determinarGanadores();
+
     }
 
     public void iniciarCarrera() {
         getcCarrera().getCarrera().setTiempoInicial(System.currentTimeMillis());
+        new Thread(() -> {
         cHilos.iniciarHilos();
+        }).start();
+        determinarGanadores();
     }
 
     public void reiniciarCarrera() {
