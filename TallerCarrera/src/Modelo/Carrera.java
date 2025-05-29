@@ -13,7 +13,7 @@ public class  Carrera {
     private long tiempoInicial;
     private int duracionCarrera;
     private boolean esFinalizada = false;
-    private static int distanciaCarrera = 2000;
+    private static int distanciaCarrera = 720;
 
     public Carrera(long tiempoInicial, int duracionCarrera, boolean esFinalizada) {
         this.tiempoInicial = tiempoInicial;
