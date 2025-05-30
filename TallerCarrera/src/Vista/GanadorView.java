@@ -4,16 +4,23 @@
  */
 package Vista;
 
+import Control.ControlVentana;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
 /**
  *
  * @author hailen
  */
 public class GanadorView extends javax.swing.JFrame {
+    private ControlVentana cVentana;
 
     /**
      * Creates new form GanadorView
      */
-    public GanadorView() {
+    public GanadorView(ControlVentana cVentana) {
+        this.cVentana = cVentana;
         initComponents();
     }
 
@@ -26,57 +33,422 @@ public class GanadorView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btnContinuar = new javax.swing.JButton();
+        jPANEL_CONTENEDOR = new javax.swing.JPanel();
+        PANEL_GOKU = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        lblVictoriaGoku = new javax.swing.JLabel();
+        lblTiempoGoku = new javax.swing.JLabel();
+        PANEL_PIKA = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        lblVictoriaPika = new javax.swing.JLabel();
+        lblTiempoPika = new javax.swing.JLabel();
+        PANEL_SONIC = new javax.swing.JPanel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        lblVictoriaSonic = new javax.swing.JLabel();
+        lblTiempoSonic = new javax.swing.JLabel();
+        PANEL_NYANCAT = new javax.swing.JPanel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        lblVictoriaNyan = new javax.swing.JLabel();
+        lblTiempoNyan = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        btnContinuar.setBackground(new java.awt.Color(0, 153, 51));
+        btnContinuar.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        btnContinuar.setForeground(new java.awt.Color(255, 255, 255));
+        btnContinuar.setText("CONTINUAR");
+        btnContinuar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnContinuarActionPerformed(evt);
+            }
+        });
+
+        jPANEL_CONTENEDOR.setBackground(new java.awt.Color(0, 0, 0));
+        jPANEL_CONTENEDOR.setLayout(new java.awt.CardLayout());
+
+        PANEL_GOKU.setBackground(new java.awt.Color(0, 0, 0));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/img/gokuGANADOR.gif"))); // NOI18N
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("GANADOR: GOKU");
+
+        lblVictoriaGoku.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        lblVictoriaGoku.setForeground(new java.awt.Color(255, 255, 255));
+        lblVictoriaGoku.setText("Victorias: ");
+
+        lblTiempoGoku.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        lblTiempoGoku.setForeground(new java.awt.Color(255, 255, 255));
+        lblTiempoGoku.setText("Tiempo: ");
+
+        javax.swing.GroupLayout PANEL_GOKULayout = new javax.swing.GroupLayout(PANEL_GOKU);
+        PANEL_GOKU.setLayout(PANEL_GOKULayout);
+        PANEL_GOKULayout.setHorizontalGroup(
+            PANEL_GOKULayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PANEL_GOKULayout.createSequentialGroup()
+                .addGroup(PANEL_GOKULayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PANEL_GOKULayout.createSequentialGroup()
+                        .addGap(68, 68, 68)
+                        .addComponent(jLabel1))
+                    .addGroup(PANEL_GOKULayout.createSequentialGroup()
+                        .addGap(176, 176, 176)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PANEL_GOKULayout.createSequentialGroup()
+                .addGap(0, 72, Short.MAX_VALUE)
+                .addGroup(PANEL_GOKULayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblVictoriaGoku, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblTiempoGoku, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(305, 305, 305))
+        );
+        PANEL_GOKULayout.setVerticalGroup(
+            PANEL_GOKULayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PANEL_GOKULayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblTiempoGoku)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblVictoriaGoku)
+                .addContainerGap(18, Short.MAX_VALUE))
+        );
+
+        jPANEL_CONTENEDOR.add(PANEL_GOKU, "Goku");
+
+        PANEL_PIKA.setBackground(new java.awt.Color(0, 0, 0));
+
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/img/pikachuGANADOR.gif"))); // NOI18N
+
+        jLabel7.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setText("GANADOR: PIKACHU");
+
+        lblVictoriaPika.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        lblVictoriaPika.setForeground(new java.awt.Color(255, 255, 255));
+        lblVictoriaPika.setText("Victorias: ");
+
+        lblTiempoPika.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        lblTiempoPika.setForeground(new java.awt.Color(255, 255, 255));
+        lblTiempoPika.setText("Tiempo: ");
+
+        javax.swing.GroupLayout PANEL_PIKALayout = new javax.swing.GroupLayout(PANEL_PIKA);
+        PANEL_PIKA.setLayout(PANEL_PIKALayout);
+        PANEL_PIKALayout.setHorizontalGroup(
+            PANEL_PIKALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PANEL_PIKALayout.createSequentialGroup()
+                .addGap(0, 72, Short.MAX_VALUE)
+                .addGroup(PANEL_PIKALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblVictoriaPika, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblTiempoPika, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(305, 305, 305))
+            .addGroup(PANEL_PIKALayout.createSequentialGroup()
+                .addGroup(PANEL_PIKALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PANEL_PIKALayout.createSequentialGroup()
+                        .addGap(68, 68, 68)
+                        .addComponent(jLabel6))
+                    .addGroup(PANEL_PIKALayout.createSequentialGroup()
+                        .addGap(176, 176, 176)
+                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        PANEL_PIKALayout.setVerticalGroup(
+            PANEL_PIKALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PANEL_PIKALayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblTiempoPika)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblVictoriaPika)
+                .addContainerGap(18, Short.MAX_VALUE))
+        );
+
+        jPANEL_CONTENEDOR.add(PANEL_PIKA, "Pikachu");
+
+        PANEL_SONIC.setBackground(new java.awt.Color(0, 0, 0));
+
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/img/sonicGANADOR.gif"))); // NOI18N
+
+        jLabel11.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel11.setText("GANADOR: SONIC");
+
+        lblVictoriaSonic.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        lblVictoriaSonic.setForeground(new java.awt.Color(255, 255, 255));
+        lblVictoriaSonic.setText("Victorias: ");
+
+        lblTiempoSonic.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        lblTiempoSonic.setForeground(new java.awt.Color(255, 255, 255));
+        lblTiempoSonic.setText("Tiempo: ");
+
+        javax.swing.GroupLayout PANEL_SONICLayout = new javax.swing.GroupLayout(PANEL_SONIC);
+        PANEL_SONIC.setLayout(PANEL_SONICLayout);
+        PANEL_SONICLayout.setHorizontalGroup(
+            PANEL_SONICLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PANEL_SONICLayout.createSequentialGroup()
+                .addGap(0, 72, Short.MAX_VALUE)
+                .addGroup(PANEL_SONICLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblVictoriaSonic, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblTiempoSonic, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(305, 305, 305))
+            .addGroup(PANEL_SONICLayout.createSequentialGroup()
+                .addGroup(PANEL_SONICLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PANEL_SONICLayout.createSequentialGroup()
+                        .addGap(68, 68, 68)
+                        .addComponent(jLabel10))
+                    .addGroup(PANEL_SONICLayout.createSequentialGroup()
+                        .addGap(176, 176, 176)
+                        .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        PANEL_SONICLayout.setVerticalGroup(
+            PANEL_SONICLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PANEL_SONICLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel10)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel11)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblTiempoSonic)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblVictoriaSonic)
+                .addContainerGap(18, Short.MAX_VALUE))
+        );
+
+        jPANEL_CONTENEDOR.add(PANEL_SONIC, "Sonic");
+
+        PANEL_NYANCAT.setBackground(new java.awt.Color(0, 0, 0));
+
+        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/img/nyancatGANADOR .gif"))); // NOI18N
+
+        jLabel15.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel15.setText("GANADOR: NYAN CAT");
+
+        lblVictoriaNyan.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        lblVictoriaNyan.setForeground(new java.awt.Color(255, 255, 255));
+        lblVictoriaNyan.setText("Victorias: ");
+
+        lblTiempoNyan.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        lblTiempoNyan.setForeground(new java.awt.Color(255, 255, 255));
+        lblTiempoNyan.setText("Tiempo: ");
+
+        javax.swing.GroupLayout PANEL_NYANCATLayout = new javax.swing.GroupLayout(PANEL_NYANCAT);
+        PANEL_NYANCAT.setLayout(PANEL_NYANCATLayout);
+        PANEL_NYANCATLayout.setHorizontalGroup(
+            PANEL_NYANCATLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PANEL_NYANCATLayout.createSequentialGroup()
+                .addGap(0, 72, Short.MAX_VALUE)
+                .addGroup(PANEL_NYANCATLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblVictoriaNyan, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblTiempoNyan, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(305, 305, 305))
+            .addGroup(PANEL_NYANCATLayout.createSequentialGroup()
+                .addGroup(PANEL_NYANCATLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PANEL_NYANCATLayout.createSequentialGroup()
+                        .addGap(68, 68, 68)
+                        .addComponent(jLabel14))
+                    .addGroup(PANEL_NYANCATLayout.createSequentialGroup()
+                        .addGap(176, 176, 176)
+                        .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        PANEL_NYANCATLayout.setVerticalGroup(
+            PANEL_NYANCATLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PANEL_NYANCATLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel14)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel15)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblTiempoNyan)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblVictoriaNyan)
+                .addContainerGap(18, Short.MAX_VALUE))
+        );
+
+        jPANEL_CONTENEDOR.add(PANEL_NYANCAT, "NyanCat");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 548, Short.MAX_VALUE)
+            .addComponent(jPANEL_CONTENEDOR, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(214, 214, 214)
+                .addComponent(btnContinuar)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 619, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPANEL_CONTENEDOR, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnContinuar)
+                .addGap(12, 12, 12))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnContinuarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContinuarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnContinuarActionPerformed
+
+    
+    
+
+    public JPanel getjPANEL_CONTENEDOR() {
+        return jPANEL_CONTENEDOR;
+    }
+
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(GanadorView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(GanadorView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(GanadorView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(GanadorView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new GanadorView().setVisible(true);
-            }
-        });
+    public void setjPANEL_CONTENEDOR(JPanel jPANEL_CONTENEDOR) {
+        this.jPANEL_CONTENEDOR = jPANEL_CONTENEDOR;
     }
 
+    public JPanel getPANEL_GOKU() {
+        return PANEL_GOKU;
+    }
+
+    public void setPANEL_GOKU(JPanel PANEL_GOKU) {
+        this.PANEL_GOKU = PANEL_GOKU;
+    }
+
+    public JPanel getPANEL_NYANCAT() {
+        return PANEL_NYANCAT;
+    }
+
+    public void setPANEL_NYANCAT(JPanel PANEL_NYANCAT) {
+        this.PANEL_NYANCAT = PANEL_NYANCAT;
+    }
+
+    public JPanel getPANEL_PIKA() {
+        return PANEL_PIKA;
+    }
+
+    public void setPANEL_PIKA(JPanel PANEL_PIKA) {
+        this.PANEL_PIKA = PANEL_PIKA;
+    }
+
+    public JPanel getPANEL_SONIC() {
+        return PANEL_SONIC;
+    }
+
+    public void setPANEL_SONIC(JPanel PANEL_SONIC) {
+        this.PANEL_SONIC = PANEL_SONIC;
+    }
+
+    public JButton getBtnContinuar() {
+        return btnContinuar;
+    }
+
+    public void setBtnContinuar(JButton btnContinuar) {
+        this.btnContinuar = btnContinuar;
+    }
+
+    public JLabel getLblTiempoGoku() {
+        return lblTiempoGoku;
+    }
+
+    public void setLblTiempoGoku(JLabel lblTiempoGoku) {
+        this.lblTiempoGoku = lblTiempoGoku;
+    }
+
+    public JLabel getLblTiempoNyan() {
+        return lblTiempoNyan;
+    }
+
+    public void setLblTiempoNyan(JLabel lblTiempoNyan) {
+        this.lblTiempoNyan = lblTiempoNyan;
+    }
+
+    public JLabel getLblTiempoPika() {
+        return lblTiempoPika;
+    }
+
+    public void setLblTiempoPika(JLabel lblTiempoPika) {
+        this.lblTiempoPika = lblTiempoPika;
+    }
+
+    public JLabel getLblTiempoSonic() {
+        return lblTiempoSonic;
+    }
+
+    public void setLblTiempoSonic(JLabel lblTiempoSonic) {
+        this.lblTiempoSonic = lblTiempoSonic;
+    }
+
+    public JLabel getLblVictoriaGoku() {
+        return lblVictoriaGoku;
+    }
+
+    public void setLblVictoriaGoku(JLabel lblVictoriaGoku) {
+        this.lblVictoriaGoku = lblVictoriaGoku;
+    }
+
+    public JLabel getLblVictoriaNyan() {
+        return lblVictoriaNyan;
+    }
+
+    public void setLblVictoriaNyan(JLabel lblVictoriaNyan) {
+        this.lblVictoriaNyan = lblVictoriaNyan;
+    }
+
+    public JLabel getLblVictoriaPika() {
+        return lblVictoriaPika;
+    }
+
+    public void setLblVictoriaPika(JLabel lblVictoriaPika) {
+        this.lblVictoriaPika = lblVictoriaPika;
+    }
+
+    public JLabel getLblVictoriaSonic() {
+        return lblVictoriaSonic;
+    }
+
+    /**
+     * @param args the command line arguments
+     */
+    public void setLblVictoriaSonic(JLabel lblVictoriaSonic) {
+        this.lblVictoriaSonic = lblVictoriaSonic;
+    }
+    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel PANEL_GOKU;
+    private javax.swing.JPanel PANEL_NYANCAT;
+    private javax.swing.JPanel PANEL_PIKA;
+    private javax.swing.JPanel PANEL_SONIC;
+    private javax.swing.JButton btnContinuar;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JPanel jPANEL_CONTENEDOR;
+    private javax.swing.JLabel lblTiempoGoku;
+    private javax.swing.JLabel lblTiempoNyan;
+    private javax.swing.JLabel lblTiempoPika;
+    private javax.swing.JLabel lblTiempoSonic;
+    private javax.swing.JLabel lblVictoriaGoku;
+    private javax.swing.JLabel lblVictoriaNyan;
+    private javax.swing.JLabel lblVictoriaPika;
+    private javax.swing.JLabel lblVictoriaSonic;
     // End of variables declaration//GEN-END:variables
 }
