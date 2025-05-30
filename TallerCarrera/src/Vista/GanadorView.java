@@ -71,7 +71,7 @@ public class GanadorView extends javax.swing.JFrame {
         jPANEL_CONTENEDOR.setBackground(new java.awt.Color(0, 0, 0));
         jPANEL_CONTENEDOR.setLayout(new java.awt.CardLayout());
 
-        PANEL_GOKU.setBackground(new java.awt.Color(0, 0, 0));
+        PANEL_GOKU.setBackground(new java.awt.Color(0, 4, 25));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/img/gokuGANADOR.gif"))); // NOI18N
 
@@ -123,7 +123,7 @@ public class GanadorView extends javax.swing.JFrame {
 
         jPANEL_CONTENEDOR.add(PANEL_GOKU, "Goku");
 
-        PANEL_PIKA.setBackground(new java.awt.Color(0, 0, 0));
+        PANEL_PIKA.setBackground(new java.awt.Color(0, 4, 25));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/img/pikachuGANADOR.gif"))); // NOI18N
 
@@ -175,7 +175,7 @@ public class GanadorView extends javax.swing.JFrame {
 
         jPANEL_CONTENEDOR.add(PANEL_PIKA, "Pikachu");
 
-        PANEL_SONIC.setBackground(new java.awt.Color(0, 0, 0));
+        PANEL_SONIC.setBackground(new java.awt.Color(0, 4, 25));
 
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/img/sonicGANADOR.gif"))); // NOI18N
 
@@ -227,7 +227,7 @@ public class GanadorView extends javax.swing.JFrame {
 
         jPANEL_CONTENEDOR.add(PANEL_SONIC, "Sonic");
 
-        PANEL_NYANCAT.setBackground(new java.awt.Color(0, 0, 0));
+        PANEL_NYANCAT.setBackground(new java.awt.Color(0, 4, 25));
 
         jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/img/nyancatGANADOR .gif"))); // NOI18N
 

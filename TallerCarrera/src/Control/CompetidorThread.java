@@ -29,6 +29,7 @@ public class CompetidorThread implements Runnable {
     @Override
 
     public void run() {
+        
         while (!competidorModel.getCarrera().isEsFinalizada()) {
             cPrinc.getcVentana().inhabilitarBotonIniciarCarrera();
 //            cPrinc.aplicarAccidente1();

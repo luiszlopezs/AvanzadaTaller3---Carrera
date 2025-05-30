@@ -72,7 +72,7 @@
         <Container class="javax.swing.JPanel" name="PANEL_GOKU">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="0" green="0" red="0" type="rgb"/>
+              <Color blue="19" green="4" red="0" type="rgb"/>
             </Property>
           </Properties>
           <Constraints>
@@ -169,7 +169,7 @@
         <Container class="javax.swing.JPanel" name="PANEL_PIKA">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="0" green="0" red="0" type="rgb"/>
+              <Color blue="19" green="4" red="0" type="rgb"/>
             </Property>
           </Properties>
           <Constraints>
@@ -266,7 +266,7 @@
         <Container class="javax.swing.JPanel" name="PANEL_SONIC">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="0" green="0" red="0" type="rgb"/>
+              <Color blue="19" green="4" red="0" type="rgb"/>
             </Property>
           </Properties>
           <Constraints>
@@ -363,7 +363,7 @@
         <Container class="javax.swing.JPanel" name="PANEL_NYANCAT">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="0" green="0" red="0" type="rgb"/>
+              <Color blue="19" green="4" red="0" type="rgb"/>
             </Property>
           </Properties>
           <Constraints>

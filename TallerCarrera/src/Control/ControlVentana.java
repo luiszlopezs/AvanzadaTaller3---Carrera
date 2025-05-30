@@ -5,6 +5,7 @@
 package Control;
 
 import Vista.CarreraView;
+import Vista.FinalView;
 import Vista.GanadorView;
 import Vista.InicioView;
 import java.awt.CardLayout;
@@ -21,6 +22,8 @@ public class ControlVentana implements ActionListener {
     private CarreraView vCarrera;
     private InicioView vView;
     private GanadorView vGanador;
+    private FinalView vFinal;
+    private int contadorCarreras;
 
     public ControlVentana(ControlPrincipal cPrinc) {
         this.cPrinc = cPrinc;
@@ -42,34 +45,41 @@ public class ControlVentana implements ActionListener {
             // VENTANA INICIO
             case "BTN_JUGAAR":
                 vView.dispose();
-                
+
                 cargarVistaCarrera();
-                
+
                 break;
-            // VENTANA CARRERA    
+            // VENTANA CARRERA
             case "BTN_INICIAR":
                 new Thread(() -> {
                     cPrinc.iniciarCarrera();
-                     
                 }).start();
+                contadorCarreras++;
                 break;
             case "BTN_ACCIDENTE":
-//              cPrinc.setearAccidenteTrue();
+                // cPrinc.setearAccidenteTrue();
                 cPrinc.aplicarAccidente1();
                 System.out.println("si sirvooooooooooooooo");
                 break;
             case "BTN_IMPULSAR":
-//                cPrinc.setearImpulsoTrue();
+                // cPrinc.setearImpulsoTrue();
                 cPrinc.aplicarImpulso2();
                 break;
-            case "BTN_SALIR":
+            case "BTN_SALIR": //Cuando presiona Salir, se mostrará el resumen de cada competidor y sus carreras
                 vCarrera.dispose();
+                cPrinc.mostrarFinal();
+
                 break;
-                
-            //VENTANA GANADORES
-            
+
+            // VENTANA GANADORES
             case "VGANADOR_CONTINUAR":
                 vGanador.dispose();
+
+                break;
+            //VISTA FINAL
+            case "BTN_SALIR_FINAL":
+                vFinal.dispose();
+                break;
 
         }
     }
@@ -91,79 +101,135 @@ public class ControlVentana implements ActionListener {
 
         vCarrera.setVisible(true);
     }
-    
-    public void cargarVistaGanador(){
+
+    public void cargarVistaGanador() {
         vGanador = new GanadorView(this);
 
         vGanador.getBtnContinuar().setActionCommand("VGANADOR_CONTINUAR");
         vGanador.getBtnContinuar().addActionListener(this);
         vGanador.setVisible(true);
     }
-    
-    public void mostrarGanador(String nombrePanel){
-        CardLayout cl = (CardLayout) vGanador.getjPANEL_CONTENEDOR().getLayout();
-        cl.show(vGanador.getjPANEL_CONTENEDOR(),nombrePanel );
-        switch(nombrePanel){
-            case "Goku":
-                vGanador.getLblVictoriaGoku().setText("VICTORIAS: "+ cPrinc.getcHilos().getCompetidoresThread().get(2).getCompetidorModel().getCantidadVictorias());
-                vGanador.getLblTiempoGoku().setText("TIEMPO: "+ cPrinc.getcHilos().getCompetidoresThread().get(2).getCompetidorModel().getTiempoLlegada());
-                break;
-            case"Sonic":
-                vGanador.getLblVictoriaSonic().setText("VICTORIAS: "+ cPrinc.getcHilos().getCompetidoresThread().get(1).getCompetidorModel().getCantidadVictorias());
-                vGanador.getLblTiempoSonic().setText("TIEMPO: "+ cPrinc.getcHilos().getCompetidoresThread().get(1).getCompetidorModel().getTiempoLlegada());
-                break;
-            case "NyanCat":
-                vGanador.getLblVictoriaNyan().setText("VICTORIAS: "+ cPrinc.getcHilos().getCompetidoresThread().get(0).getCompetidorModel().getCantidadVictorias());
-                vGanador.getLblTiempoNyan().setText("TIEMPO: "+ cPrinc.getcHilos().getCompetidoresThread().get(0).getCompetidorModel().getTiempoLlegada());
-                break;
-            case "Pikachu":
-                vGanador.getLblVictoriaPika().setText("VICTORIAS: "+ cPrinc.getcHilos().getCompetidoresThread().get(3).getCompetidorModel().getCantidadVictorias());
-                vGanador.getLblTiempoPika().setText("TIEMPO: "+ cPrinc.getcHilos().getCompetidoresThread().get(3).getCompetidorModel().getTiempoLlegada());
-                break;
-        }
-            
+
+    public void cargarVistaFinal() {
+        vFinal = new FinalView(this);
+        vFinal.getBtnSalirFinal().setActionCommand("BTN_SALIR_FINAL");
+        vFinal.getBtnSalirFinal().addActionListener(this);
+        vFinal.getBtnGanoGoku().setVisible(false);
+        vFinal.getBtnGanoSonic().setVisible(false);
+        vFinal.getBtnGanoNyan().setVisible(false);
+        vFinal.getBtnGanoPika().setVisible(false);
+
+        vFinal.setVisible(true);
+
     }
-    
-    public void moverLabels(String nombre){
-        switch (nombre){
+    //Método que muestra un panel del ganador de cada carrera, con su número de victorias hasta el momento y el tiempo de la carrera
+    public void mostrarGanador(String nombrePanel) {
+        CardLayout cl = (CardLayout) vGanador.getjPANEL_CONTENEDOR().getLayout();
+        cl.show(vGanador.getjPANEL_CONTENEDOR(), nombrePanel);
+        switch (nombrePanel) {
             case "NyanCat":
-                vCarrera.getLblNyanCat().setLocation(cPrinc.getcHilos().getCompetidoresThread().get(0).getCompetidorModel().getPosicionActual(), 150);
+                vGanador.getLblVictoriaNyan().setText("VICTORIAS: " + cPrinc.getcHilos().getCompetidoresThread().get(0)
+                        .getCompetidorModel().getCantidadVictorias());
+                vGanador.getLblTiempoNyan().setText("TIEMPO: "
+                        + (cPrinc.formatearTiempo(cPrinc.getcHilos().getCompetidoresThread().get(0).getCompetidorModel().getTiempoLlegada()))); //Se llama al método de cPrinc para mostar el tiempo en segundos, con sus decimales
                 break;
             case "Sonic":
-                vCarrera.getLblSonic().setLocation(cPrinc.getcHilos().getCompetidoresThread().get(1).getCompetidorModel().getPosicionActual(), 250);
+                vGanador.getLblVictoriaSonic().setText("VICTORIAS: " + cPrinc.getcHilos().getCompetidoresThread().get(1)
+                        .getCompetidorModel().getCantidadVictorias());
+                vGanador.getLblTiempoSonic().setText("TIEMPO: "
+                        + (cPrinc.formatearTiempo(cPrinc.getcHilos().getCompetidoresThread().get(1).getCompetidorModel().getTiempoLlegada())));
                 break;
             case "Goku":
-                vCarrera.getLblGoku().setLocation(cPrinc.getcHilos().getCompetidoresThread().get(2).getCompetidorModel().getPosicionActual(), 340);
+                vGanador.getLblVictoriaGoku().setText("VICTORIAS: " + cPrinc.getcHilos().getCompetidoresThread().get(2)
+                        .getCompetidorModel().getCantidadVictorias());
+                vGanador.getLblTiempoGoku().setText("TIEMPO: "
+                        + (cPrinc.formatearTiempo(cPrinc.getcHilos().getCompetidoresThread().get(2).getCompetidorModel().getTiempoLlegada())));
+                break;
+
+            case "Pikachu":
+                vGanador.getLblVictoriaPika().setText("VICTORIAS: " + cPrinc.getcHilos().getCompetidoresThread().get(3)
+                        .getCompetidorModel().getCantidadVictorias());
+                vGanador.getLblTiempoPika().setText("TIEMPO: "
+                        + (cPrinc.formatearTiempo(cPrinc.getcHilos().getCompetidoresThread().get(3).getCompetidorModel().getTiempoLlegada())));
+                break;
+        }
+
+    }
+    //Método que hace visible el botón de ganador para aquellos con la mayor cantidad de victorias
+    public void determinarGanadorFinal(String nombreBoton) {
+        switch (nombreBoton) {
+            case "Goku":
+                vFinal.getBtnGanoGoku().setVisible(true);
+                break;
+            case "Sonic":
+                vFinal.getBtnGanoSonic().setVisible(true);
+                break;
+            case "NyanCat":
+                vFinal.getBtnGanoNyan().setVisible(true);
                 break;
             case "Pikachu":
-                vCarrera.getLblPikachu().setLocation(cPrinc.getcHilos().getCompetidoresThread().get(3).getCompetidorModel().getPosicionActual(), 400);
+                vFinal.getBtnGanoPika().setVisible(true);
                 break;
-         
+        }
+//
+//      Se edita el texto del label que muestra las victorias totales de cada competidor
+        vFinal.getLblVictoriasNyan().setText(Integer.toString(cPrinc.getcHilos().getCompetidoresThread().get(0).getCompetidorModel().getCantidadVictorias()));
+        vFinal.getLblVictoriasSonic().setText(Integer.toString(cPrinc.getcHilos().getCompetidoresThread().get(1).getCompetidorModel().getCantidadVictorias()));
+        vFinal.getLblVictoriasGoku().setText(Integer.toString(cPrinc.getcHilos().getCompetidoresThread().get(2).getCompetidorModel().getCantidadVictorias()));
+        vFinal.getLblVictoriasPika().setText(Integer.toString(cPrinc.getcHilos().getCompetidoresThread().get(3).getCompetidorModel().getCantidadVictorias()));
+    }
+
+    public void moverLabels(String nombre) {
+        switch (nombre) {
+            case "NyanCat":
+                vCarrera.getLblNyanCat().setLocation(
+                        cPrinc.getcHilos().getCompetidoresThread().get(0).getCompetidorModel().getPosicionActual(),
+                        150);
+                break;
+            case "Sonic":
+                vCarrera.getLblSonic().setLocation(
+                        cPrinc.getcHilos().getCompetidoresThread().get(1).getCompetidorModel().getPosicionActual(),
+                        250);
+                break;
+            case "Goku":
+                vCarrera.getLblGoku().setLocation(
+                        cPrinc.getcHilos().getCompetidoresThread().get(2).getCompetidorModel().getPosicionActual(),
+                        340);
+                break;
+            case "Pikachu":
+                vCarrera.getLblPikachu().setLocation(
+                        cPrinc.getcHilos().getCompetidoresThread().get(3).getCompetidorModel().getPosicionActual(),
+                        400);
+                break;
+
         }
     }
-        
-    public void inhabilitarBotonesAcciones(){
+
+    public void inhabilitarBotonesAcciones() {
         vCarrera.getBtnAccidente().setEnabled(false);
         vCarrera.getBtnImpulsar().setEnabled(false);
-        
+
     }
-    
-    public void habilitarBotonesAcciones(){
+
+    public void habilitarBotonesAcciones() {
         vCarrera.getBtnAccidente().setEnabled(true);
         vCarrera.getBtnImpulsar().setEnabled(true);
     }
-    
-    public void inhabilitarBotonIniciarCarrera(){
+
+    public void inhabilitarBotonIniciarCarrera() {
         vCarrera.getBtnIniciar().setEnabled(false);
     }
-    
-    public void habilitarBotonIniciarCarrera(){
+
+    public void habilitarBotonIniciarCarrera() {
         vCarrera.getBtnIniciar().setEnabled(true);
     }
-            
-        
-        
-        
+
+    public int getContadorCarreras() {
+        return contadorCarreras;
+    }
+
+    public void setContadorCarreras(int contadorCarreras) {
+        this.contadorCarreras = contadorCarreras;
+    }
+
 }
-
-
