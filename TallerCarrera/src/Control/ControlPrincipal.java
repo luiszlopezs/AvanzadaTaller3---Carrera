@@ -31,6 +31,8 @@ public class ControlPrincipal {
         cHilos.iniciarHilos();
         inhabilitarBotonesAcciones();
         determinarGanadores();
+        cVentana.cargarVistaGanador();
+        cVentana.mostrarGanador(cCarrera.determinarGanadores(cHilos.getCompetidoresThread()).get(0).getCompetidorModel().getNombre());
                 for (int i = 0; i < cHilos.getCompetidoresThread().size(); i++) {
             cHilos.getCompetidoresThread().get(i).getCompetidorModel().setPosicionActual(0);
             cHilos.getCompetidoresThread().get(i).getCompetidorModel().setTiempoLlegada(0);
@@ -40,6 +42,8 @@ public class ControlPrincipal {
         getcCarrera().getCarrera().setTiempoInicial(System.currentTimeMillis());
         cCarrera.getCarrera().setEsFinalizada(false);
         cVentana.habilitarBotonIniciarCarrera();
+       
+        
     }
 
 

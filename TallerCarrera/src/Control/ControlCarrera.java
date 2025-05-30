@@ -38,9 +38,9 @@ public class ControlCarrera {
         for(CompetidorThread c : ListaThread){
             if(c.getCompetidorModel().getTiempoLlegada() == carrera.getDuracionCarrera()){
                 
-                ganadores.add(c); //Añadir al competidor a la lista de ganadores
+                ganadores.add(c); //Añadir el competidor a la lista de ganadores
                 c.getCompetidorModel().incrementarVictorias(); //Cada ganador incrementa su cantidad de victorias, para contabilizar el número de carreras ganadas al final de la ejecución
-                
+                System.out.println("Victorias:"+ c.getCompetidorModel().getCantidadVictorias());
             }
         }return ganadores;
         
@@ -56,6 +56,7 @@ public class ControlCarrera {
 
                 c.getCompetidorModel().getCarrera().setDuracionCarrera(tiempoLlegada);
                 c.getCompetidorModel().getCarrera().setEsFinalizada(true);
+                System.out.println("Se terminó la carrera");
 
                 System.out.println("¡" + c.getCompetidorModel().getNombre() + " ganó la carrera!");
                 System.out.println("Carrera tiempo inicial: " + cPrinc.getcCarrera().getCarrera().getTiempoInicial());

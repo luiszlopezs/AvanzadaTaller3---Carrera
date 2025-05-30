@@ -5,7 +5,9 @@
 package Control;
 
 import Vista.CarreraView;
+import Vista.GanadorView;
 import Vista.InicioView;
+import java.awt.CardLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -18,6 +20,7 @@ public class ControlVentana implements ActionListener {
     private ControlPrincipal cPrinc;
     private CarreraView vCarrera;
     private InicioView vView;
+    private GanadorView vGanador;
 
     public ControlVentana(ControlPrincipal cPrinc) {
         this.cPrinc = cPrinc;
@@ -51,7 +54,7 @@ public class ControlVentana implements ActionListener {
                 }).start();
                 break;
             case "BTN_ACCIDENTE":
-//                cPrinc.setearAccidenteTrue();
+//              cPrinc.setearAccidenteTrue();
                 cPrinc.aplicarAccidente1();
                 System.out.println("si sirvooooooooooooooo");
                 break;
@@ -62,6 +65,11 @@ public class ControlVentana implements ActionListener {
             case "BTN_SALIR":
                 vCarrera.dispose();
                 break;
+                
+            //VENTANA GANADORES
+            
+            case "VGANADOR_CONTINUAR":
+                vGanador.dispose();
 
         }
     }
@@ -82,6 +90,38 @@ public class ControlVentana implements ActionListener {
         vCarrera.getBtnSalir().addActionListener(this);
 
         vCarrera.setVisible(true);
+    }
+    
+    public void cargarVistaGanador(){
+        vGanador = new GanadorView(this);
+
+        vGanador.getBtnContinuar().setActionCommand("VGANADOR_CONTINUAR");
+        vGanador.getBtnContinuar().addActionListener(this);
+        vGanador.setVisible(true);
+    }
+    
+    public void mostrarGanador(String nombrePanel){
+        CardLayout cl = (CardLayout) vGanador.getjPANEL_CONTENEDOR().getLayout();
+        cl.show(vGanador.getjPANEL_CONTENEDOR(),nombrePanel );
+        switch(nombrePanel){
+            case "Goku":
+                vGanador.getLblVictoriaGoku().setText("VICTORIAS: "+ cPrinc.getcHilos().getCompetidoresThread().get(2).getCompetidorModel().getCantidadVictorias());
+                vGanador.getLblTiempoGoku().setText("TIEMPO: "+ cPrinc.getcHilos().getCompetidoresThread().get(2).getCompetidorModel().getTiempoLlegada());
+                break;
+            case"Sonic":
+                vGanador.getLblVictoriaSonic().setText("VICTORIAS: "+ cPrinc.getcHilos().getCompetidoresThread().get(1).getCompetidorModel().getCantidadVictorias());
+                vGanador.getLblTiempoSonic().setText("TIEMPO: "+ cPrinc.getcHilos().getCompetidoresThread().get(1).getCompetidorModel().getTiempoLlegada());
+                break;
+            case "NyanCat":
+                vGanador.getLblVictoriaNyan().setText("VICTORIAS: "+ cPrinc.getcHilos().getCompetidoresThread().get(0).getCompetidorModel().getCantidadVictorias());
+                vGanador.getLblTiempoNyan().setText("TIEMPO: "+ cPrinc.getcHilos().getCompetidoresThread().get(0).getCompetidorModel().getTiempoLlegada());
+                break;
+            case "Pikachu":
+                vGanador.getLblVictoriaPika().setText("VICTORIAS: "+ cPrinc.getcHilos().getCompetidoresThread().get(3).getCompetidorModel().getCantidadVictorias());
+                vGanador.getLblTiempoPika().setText("TIEMPO: "+ cPrinc.getcHilos().getCompetidoresThread().get(3).getCompetidorModel().getTiempoLlegada());
+                break;
+        }
+            
     }
     
     public void moverLabels(String nombre){
