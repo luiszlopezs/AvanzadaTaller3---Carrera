@@ -18,66 +18,76 @@ import java.util.logging.Logger;
 public class ControlHilos {
 
     private ControlPrincipal cPrinc;
-    private List<Competidor> hilos;
+    private ArrayList<CompetidorThread> competidoresThread;
 
-    public ControlHilos(ControlPrincipal cPrinc, List<Competidor> competidores) {
+    public ControlHilos(ControlPrincipal cPrinc) {
         this.cPrinc = cPrinc;
-        this.hilos = competidores;
+        competidoresThread = new ArrayList();
+
+        CompetidorThread competidor1 = new CompetidorThread(cPrinc, "NyanCat", 20);
+        CompetidorThread competidor2 = new CompetidorThread(cPrinc, "Sonic", 21);
+
+        CompetidorThread competidor3 = new CompetidorThread(cPrinc, "Goku", 18);
+        CompetidorThread competidor4 = new CompetidorThread(cPrinc, "Pikachu",19);
+
+        competidoresThread.add(competidor1);
+        competidoresThread.add(competidor2);
+        competidoresThread.add(competidor3);
+        competidoresThread.add(competidor4);
+
     }
 
     public void iniciarHilos() {
-
-        for (Competidor hilo : hilos) {
-            hilo.start();
-
+        ArrayList<Thread> listaHilos = new ArrayList();
+        
+        for (CompetidorThread hilo : competidoresThread) {
+            Thread t1 = new Thread(hilo);
+            listaHilos.add(t1);
+            t1.start();
+            
         }
 
         try {
-            hilos.get(0).join();
-            hilos.get(1).join();
-            hilos.get(2).join();
-            hilos.get(3).join();
+            listaHilos.get(0).join();
+            listaHilos.get(1).join();
+            listaHilos.get(2).join();
+            listaHilos.get(3).join();
         } catch (InterruptedException ex) {
             Logger.getLogger(ControlHilos.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }
 
-    public void aplicarAccidente(String nombre) { //La validacion de si el competidor ya esta en estado de sleep o wait, se hace en el controlPrincipal / carrera, aqui solo se genera el accidente
-
-        for (Competidor c : hilos) {
-            if (c.getNombre().equals(nombre)) {
-                if (!c.isIsAccidentado()) {
-                    try {
-                        c.sleep(1000 + (int) (Math.random() * 1000));
-                    } catch (InterruptedException ex) {
-                        Logger.getLogger(Competidor.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                    System.out.println("ayy me pegue");
-                    c.setIsAccidentado(false);
-                }
-                //c.simularAccidente();
+    public void aplicarAccidente(String nombre) {
+        for (CompetidorThread c : competidoresThread) {
+             System.out.println("Comparando con: " + c.getCompetidorModel().getNombre());
+            if (c.getCompetidorModel().getNombre().equals(nombre)) {
+                c.setIsAccidentado(true);
+                System.out.println("ay me pegueeeeeeeee");
             }
         }
     }
 
-    public void impulsar(String nombre) { //
-        for (Competidor c : hilos) {
-            if (c.getNombre().equals(nombre)) {
-
-                int posicionNueva = c.getPosicionActual() + c.getImpulso();
-                c.setPosicionActual(posicionNueva);
-                
-                c.setIsImpulsado(false);
-                //c.aplicarImpulso(50); //Hace que avance 50 pasos
+    public void impulsar(String nombre) {
+        for (CompetidorThread c : competidoresThread) {
+            if (c.getCompetidorModel().getNombre().equals(nombre)) {
+                c.setIsImpulsado(true);
+                System.out.println("siuuuuuuuuuuuuu");
             }
         }
     }
 
-    public void reiniciar() {
-        for (Competidor c : hilos) {
-            c.interrupt();
-        }
+
+
+    public ArrayList<CompetidorThread> getCompetidoresThread() {
+        return competidoresThread;
     }
+
+    public void setCompetidoresThread(ArrayList<CompetidorThread> competidoresThread) {
+        this.competidoresThread = competidoresThread;
+    }
+    
+    
+    
 
 }
