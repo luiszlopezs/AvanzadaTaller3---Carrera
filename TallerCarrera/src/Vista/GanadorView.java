@@ -229,7 +229,7 @@ public class GanadorView extends javax.swing.JFrame {
 
         PANEL_NYANCAT.setBackground(new java.awt.Color(0, 4, 25));
 
-        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/img/nyancatGANADOR .gif"))); // NOI18N
+        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/img/nyancatGANADOR.gif"))); // NOI18N
 
         jLabel15.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
@@ -248,7 +248,7 @@ public class GanadorView extends javax.swing.JFrame {
         PANEL_NYANCATLayout.setHorizontalGroup(
             PANEL_NYANCATLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PANEL_NYANCATLayout.createSequentialGroup()
-                .addGap(0, 72, Short.MAX_VALUE)
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(PANEL_NYANCATLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblVictoriaNyan, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblTiempoNyan, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -274,7 +274,7 @@ public class GanadorView extends javax.swing.JFrame {
                 .addComponent(lblTiempoNyan)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblVictoriaNyan)
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPANEL_CONTENEDOR.add(PANEL_NYANCAT, "NyanCat");

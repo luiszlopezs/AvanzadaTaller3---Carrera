@@ -24,7 +24,7 @@ public class ControlHilos {
         this.cPrinc = cPrinc;
         competidoresThread = new ArrayList();
 
-        CompetidorThread competidor1 = new CompetidorThread(cPrinc, "NyanCat", 20);
+        CompetidorThread competidor1 = new CompetidorThread(cPrinc, "NyanCat", 40);
         CompetidorThread competidor2 = new CompetidorThread(cPrinc, "Sonic", 20);
 
         CompetidorThread competidor3 = new CompetidorThread(cPrinc, "Goku", 20);

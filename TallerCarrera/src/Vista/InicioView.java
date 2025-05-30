@@ -38,9 +38,7 @@ public class InicioView extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(510, 500));
         setMinimumSize(new java.awt.Dimension(510, 500));
-        setPreferredSize(new java.awt.Dimension(510, 500));
 
         PanelFondo.setBackground(new java.awt.Color(255, 248, 220));
         PanelFondo.setLayout(null);
@@ -57,15 +55,15 @@ public class InicioView extends javax.swing.JFrame {
         PanelFondo.add(btnJugar);
         btnJugar.setBounds(200, 390, 120, 40);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/img/Portada.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/img/AMAZONRACE.png"))); // NOI18N
         PanelFondo.add(jLabel2);
-        jLabel2.setBounds(0, 0, 520, 510);
+        jLabel2.setBounds(0, 0, 500, 510);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(PanelFondo, javax.swing.GroupLayout.PREFERRED_SIZE, 509, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(PanelFondo, javax.swing.GroupLayout.PREFERRED_SIZE, 495, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

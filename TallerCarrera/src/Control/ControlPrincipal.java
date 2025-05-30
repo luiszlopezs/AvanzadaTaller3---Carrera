@@ -25,21 +25,19 @@ public class ControlPrincipal {
         cCarrera = new ControlCarrera(this);
         // cCompetidores = new ControlCompetidores(this);
         cHilos = new ControlHilos(this);
-
+        
     }
 
     public void iniciarCarrera() {
-        int contador = cVentana.getContadorCarreras();
 
         getcCarrera().getCarrera().setTiempoInicial(System.currentTimeMillis());
         cVentana.habilitarBotonesAcciones();
 
         cHilos.iniciarHilos();
         inhabilitarBotonesAcciones();
-        determinarGanadores();
+        //determinarGanadores();
         cVentana.cargarVistaGanador();
-        cVentana.mostrarGanador(
-                cCarrera.determinarGanadores(cHilos.getCompetidoresThread()).get(0).getCompetidorModel().getNombre());
+        cVentana.mostrarGanador(determinarGanadores().get(0).getCompetidorModel().getNombre());
 
         for (int i = 0; i < cHilos.getCompetidoresThread().size(); i++) {
             cHilos.getCompetidoresThread().get(i).getCompetidorModel().setPosicionActual(0);
@@ -51,39 +49,9 @@ public class ControlPrincipal {
         cCarrera.getCarrera().setEsFinalizada(false);
         cVentana.habilitarBotonIniciarCarrera();
 
-        // mostrarFinal();
-        // cVentana.cargarVistaFinal();
-        // getcCarrera().getCarrera().setTiempoInicial(System.currentTimeMillis());
-        // cVentana.habilitarBotonesAcciones();
-        //
-        // cHilos.iniciarHilos();
-        // inhabilitarBotonesAcciones();
-        // determinarGanadores();
-        // cVentana.cargarVistaGanador();
-        // cVentana.mostrarGanador(cCarrera.determinarGanadores(cHilos.getCompetidoresThread()).get(0).getCompetidorModel().getNombre());
-        //
-        // for (int i = 0; i < cHilos.getCompetidoresThread().size(); i++) {
-        // cHilos.getCompetidoresThread().get(i).getCompetidorModel().setPosicionActual(0);
-        // cHilos.getCompetidoresThread().get(i).getCompetidorModel().setTiempoLlegada(0);
-        // }
-        //
-        // cCarrera.getCarrera().setDuracionCarrera(0);
-        // getcCarrera().getCarrera().setTiempoInicial(System.currentTimeMillis());
-        // cCarrera.getCarrera().setEsFinalizada(false);
-        // cVentana.habilitarBotonIniciarCarrera();
+
     }
 
-    public void reiniciarCarrera() {
-        for (int i = 0; i < cHilos.getCompetidoresThread().size(); i++) {
-            cHilos.getCompetidoresThread().get(i).getCompetidorModel().setPosicionActual(0);
-            cHilos.getCompetidoresThread().get(i).getCompetidorModel().setTiempoLlegada(0);
-        }
-
-        cCarrera.getCarrera().setDuracionCarrera(0);
-        getcCarrera().getCarrera().setTiempoInicial(System.currentTimeMillis());
-        cCarrera.getCarrera().setEsFinalizada(false);
-        cHilos.iniciarHilos();
-    }
 
     public void setearAccidenteTrue() {
         cHilos.getCompetidoresThread().get(0).setIsAccidentado(true);
@@ -156,10 +124,9 @@ public class ControlPrincipal {
         }
     }
 
-    public void determinarGanadores() {
-        cCarrera.determinarGanadores(cHilos.getCompetidoresThread());
-        System.out.println("El ganador es: "
-                + cCarrera.determinarGanadores(cHilos.getCompetidoresThread()).get(0).getCompetidorModel().getNombre());
+    public  ArrayList<CompetidorThread> determinarGanadores() {
+        return cCarrera.determinarGanadores(cHilos.getCompetidoresThread());
+        //System.out.println("El ganador es: "+ cCarrera.determinarGanadores(cHilos.getCompetidoresThread()).get(0).getCompetidorModel().getNombre());
 
     }
     //Método para convertir el tiempo dado en milisegundos a segundos (mas entendible para el usuario)

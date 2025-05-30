@@ -47,6 +47,7 @@ public class ControlVentana implements ActionListener {
                 vView.dispose();
 
                 cargarVistaCarrera();
+                cPrinc.inhabilitarBotonesAcciones();
 
                 break;
             // VENTANA CARRERA
