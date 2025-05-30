@@ -209,12 +209,14 @@ public class ControlVentana implements ActionListener {
     public void inhabilitarBotonesAcciones() {
         vCarrera.getBtnAccidente().setEnabled(false);
         vCarrera.getBtnImpulsar().setEnabled(false);
+        vCarrera.getBtnSalir().setEnabled(false);
 
     }
 
     public void habilitarBotonesAcciones() {
         vCarrera.getBtnAccidente().setEnabled(true);
         vCarrera.getBtnImpulsar().setEnabled(true);
+        
     }
 
     public void inhabilitarBotonIniciarCarrera() {
@@ -223,6 +225,7 @@ public class ControlVentana implements ActionListener {
 
     public void habilitarBotonIniciarCarrera() {
         vCarrera.getBtnIniciar().setEnabled(true);
+        vCarrera.getBtnSalir().setEnabled(true);
     }
 
     public int getContadorCarreras() {
