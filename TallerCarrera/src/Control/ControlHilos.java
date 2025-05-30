@@ -25,10 +25,10 @@ public class ControlHilos {
         competidoresThread = new ArrayList();
 
         CompetidorThread competidor1 = new CompetidorThread(cPrinc, "NyanCat", 20);
-        CompetidorThread competidor2 = new CompetidorThread(cPrinc, "Sonic", 21);
+        CompetidorThread competidor2 = new CompetidorThread(cPrinc, "Sonic", 20);
 
-        CompetidorThread competidor3 = new CompetidorThread(cPrinc, "Goku", 18);
-        CompetidorThread competidor4 = new CompetidorThread(cPrinc, "Pikachu",19);
+        CompetidorThread competidor3 = new CompetidorThread(cPrinc, "Goku", 20);
+        CompetidorThread competidor4 = new CompetidorThread(cPrinc, "Pikachu",20);
 
         competidoresThread.add(competidor1);
         competidoresThread.add(competidor2);
