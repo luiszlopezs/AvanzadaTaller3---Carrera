@@ -11,6 +11,10 @@ import Vista.InicioView;
 import java.awt.CardLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.ImageIcon;
+import javax.swing.Timer;
 
 /**
  *
@@ -29,7 +33,8 @@ public class ControlVentana implements ActionListener {
         this.cPrinc = cPrinc;
 
         vView = new InicioView(this);
-
+        cPrinc.inicializarArrayImagenes(vView.rutaJfileChooserImagenes());
+        setearImagenesVInicio();
         vView.getBtnJugar().setActionCommand("BTN_JUGAAR");
         vView.getBtnJugar().addActionListener(this);
         vView.setVisible(true);
@@ -65,7 +70,16 @@ public class ControlVentana implements ActionListener {
             case "BTN_IMPULSAR":
                 // cPrinc.setearImpulsoTrue();
                 cPrinc.aplicarImpulso2();
+                cPrinc.getcVentana().getvCarrera().getLblImpulso().setVisible(true);
+                Timer timer = new Timer(1500, new ActionListener() {
+                    public void actionPerformed(ActionEvent e) {
+                        cPrinc.getcVentana().getvCarrera().getLblImpulso().setVisible(false); // Oculta solo el JLabel
+                    }
+                });
+                timer.setRepeats(false);
+                timer.start();
                 break;
+
             case "BTN_SALIR": //Cuando presiona Salir, se mostrará el resumen de cada competidor y sus carreras
                 vCarrera.dispose();
                 cPrinc.mostrarFinal();
@@ -87,6 +101,7 @@ public class ControlVentana implements ActionListener {
 
     public void cargarVistaCarrera() {
         vCarrera = new CarreraView(this);
+        setearImagenesVCarrera();
 
         vCarrera.getBtnAccidente().setActionCommand("BTN_ACCIDENTE");
         vCarrera.getBtnAccidente().addActionListener(this);
@@ -100,12 +115,15 @@ public class ControlVentana implements ActionListener {
         vCarrera.getBtnSalir().setActionCommand("BTN_SALIR");
         vCarrera.getBtnSalir().addActionListener(this);
 
+        vCarrera.getLblAccidente().setVisible(false);
+        vCarrera.getLblImpulso().setVisible(false);
+
         vCarrera.setVisible(true);
     }
 
     public void cargarVistaGanador() {
         vGanador = new GanadorView(this);
-
+        setearImagenesVGanador();
         vGanador.getBtnContinuar().setActionCommand("VGANADOR_CONTINUAR");
         vGanador.getBtnContinuar().addActionListener(this);
         vGanador.setVisible(true);
@@ -123,6 +141,7 @@ public class ControlVentana implements ActionListener {
         vFinal.setVisible(true);
 
     }
+
     //Método que muestra un panel del ganador de cada carrera, con su número de victorias hasta el momento y el tiempo de la carrera
     public void mostrarGanador(String nombrePanel) {
         CardLayout cl = (CardLayout) vGanador.getjPANEL_CONTENEDOR().getLayout();
@@ -133,8 +152,10 @@ public class ControlVentana implements ActionListener {
                         .getCompetidorModel().getCantidadVictorias());
                 vGanador.getLblTiempoNyan().setText("TIEMPO: "
                         + (cPrinc.formatearTiempo(cPrinc.getcHilos().getCompetidoresThread().get(0).getCompetidorModel().getTiempoLlegada()))); //Se llama al método de cPrinc para mostar el tiempo en segundos, con sus decimales
+
                 break;
             case "Sonic":
+
                 vGanador.getLblVictoriaSonic().setText("VICTORIAS: " + cPrinc.getcHilos().getCompetidoresThread().get(1)
                         .getCompetidorModel().getCantidadVictorias());
                 vGanador.getLblTiempoSonic().setText("TIEMPO: "
@@ -156,6 +177,7 @@ public class ControlVentana implements ActionListener {
         }
 
     }
+
     //Método que hace visible el botón de ganador para aquellos con la mayor cantidad de victorias
     public void determinarGanadorFinal(String nombreBoton) {
         switch (nombreBoton) {
@@ -186,10 +208,16 @@ public class ControlVentana implements ActionListener {
                 vCarrera.getLblNyanCat().setLocation(
                         cPrinc.getcHilos().getCompetidoresThread().get(0).getCompetidorModel().getPosicionActual(),
                         150);
+                vCarrera.getLblAccidente().setLocation(
+                        cPrinc.getcHilos().getCompetidoresThread().get(0).getCompetidorModel().getPosicionActual() + 120,
+                        150);
                 break;
             case "Sonic":
                 vCarrera.getLblSonic().setLocation(
                         cPrinc.getcHilos().getCompetidoresThread().get(1).getCompetidorModel().getPosicionActual(),
+                        250);
+                vCarrera.getLblImpulso().setLocation(
+                        cPrinc.getcHilos().getCompetidoresThread().get(1).getCompetidorModel().getPosicionActual() -100,
                         250);
                 break;
             case "Goku":
@@ -216,7 +244,7 @@ public class ControlVentana implements ActionListener {
     public void habilitarBotonesAcciones() {
         vCarrera.getBtnAccidente().setEnabled(true);
         vCarrera.getBtnImpulsar().setEnabled(true);
-        
+
     }
 
     public void inhabilitarBotonIniciarCarrera() {
@@ -228,12 +256,64 @@ public class ControlVentana implements ActionListener {
         vCarrera.getBtnSalir().setEnabled(true);
     }
 
+    public void setearImagenesVInicio() {
+        System.out.println(cPrinc.getImagenesRutas().get(0));
+        ImageIcon imagenFondoInicio = new ImageIcon(getClass().getResource(cPrinc.getImagenesRutas().get(0)));
+        vView.getLblImagenInicio().setIcon(imagenFondoInicio);
+    }
+
+    public void setearImagenesVCarrera() {
+        ImageIcon imagen = new ImageIcon(getClass().getResource(cPrinc.getImagenesRutas().get(1)));
+        vCarrera.getLblImagen().setIcon(imagen);
+
+        imagen = new ImageIcon(getClass().getResource(cPrinc.getImagenesRutas().get(2)));
+        vCarrera.getLblGoku().setIcon(imagen);
+
+        imagen = new ImageIcon(getClass().getResource(cPrinc.getImagenesRutas().get(3)));
+        vCarrera.getLblNyanCat().setIcon(imagen);
+
+        imagen = new ImageIcon(getClass().getResource(cPrinc.getImagenesRutas().get(4)));
+        vCarrera.getLblPikachu().setIcon(imagen);
+
+        imagen = new ImageIcon(getClass().getResource(cPrinc.getImagenesRutas().get(5)));
+        vCarrera.getLblSonic().setIcon(imagen);
+
+        imagen = new ImageIcon(getClass().getResource(cPrinc.getImagenesRutas().get(10)));
+        vCarrera.getLblAccidente().setIcon(imagen);
+
+        imagen = new ImageIcon(getClass().getResource(cPrinc.getImagenesRutas().get(11)));
+        vCarrera.getLblImpulso().setIcon(imagen);
+    }
+
+    public void setearImagenesVGanador() {
+        vGanador.getLblImagenGoku().setIcon(new ImageIcon(getClass().getResource(cPrinc.getImagenesRutas().get(6))));
+        vGanador.getLblImagenNyancat().setIcon(new ImageIcon(getClass().getResource(cPrinc.getImagenesRutas().get(7))));
+        vGanador.getLblImagenPikachu().setIcon(new ImageIcon(getClass().getResource(cPrinc.getImagenesRutas().get(8))));
+        vGanador.getLblImagenSonic().setIcon(new ImageIcon(getClass().getResource(cPrinc.getImagenesRutas().get(9))));
+
+    }
+
+    public void setearImagenesVFinal() {
+        vFinal.getLblGokuFinal().setIcon(new ImageIcon(getClass().getResource(cPrinc.getImagenesRutas().get(2))));
+        vFinal.getLblFinalNyan().setIcon(new ImageIcon(getClass().getResource(cPrinc.getImagenesRutas().get(3))));
+        vFinal.getLblFinalPikachu().setIcon(new ImageIcon(getClass().getResource(cPrinc.getImagenesRutas().get(4))));
+        vFinal.getLblFinalSonic().setIcon(new ImageIcon(getClass().getResource(cPrinc.getImagenesRutas().get(5))));
+    }
+
     public int getContadorCarreras() {
         return contadorCarreras;
     }
 
     public void setContadorCarreras(int contadorCarreras) {
         this.contadorCarreras = contadorCarreras;
+    }
+
+    public CarreraView getvCarrera() {
+        return vCarrera;
+    }
+
+    public void setvCarrera(CarreraView vCarrera) {
+        this.vCarrera = vCarrera;
     }
 
 }

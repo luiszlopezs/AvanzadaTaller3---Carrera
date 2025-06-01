@@ -35,6 +35,8 @@ public class CarreraView extends javax.swing.JFrame {
     private void initComponents() {
 
         PanelFondo = new javax.swing.JPanel();
+        lblAccidente = new javax.swing.JLabel();
+        lblImpulso = new javax.swing.JLabel();
         lblPikachu = new javax.swing.JLabel();
         lblGoku = new javax.swing.JLabel();
         lblSonic = new javax.swing.JLabel();
@@ -52,23 +54,32 @@ public class CarreraView extends javax.swing.JFrame {
         PanelFondo.setBackground(new java.awt.Color(255, 248, 220));
         PanelFondo.setLayout(null);
 
-        lblPikachu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/img/Pikachu.gif"))); // NOI18N
+        lblAccidente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/accidente.gif"))); // NOI18N
+        PanelFondo.add(lblAccidente);
+        lblAccidente.setBounds(150, 150, 90, 90);
+
+        lblImpulso.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/fuego.gif"))); // NOI18N
+        lblImpulso.setText("jLabel2");
+        PanelFondo.add(lblImpulso);
+        lblImpulso.setBounds(-70, 260, 120, 90);
+
+        lblPikachu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Pikachu.gif"))); // NOI18N
         PanelFondo.add(lblPikachu);
         lblPikachu.setBounds(0, 400, 140, 100);
 
-        lblGoku.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/img/Goku.gif"))); // NOI18N
+        lblGoku.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Goku.gif"))); // NOI18N
         PanelFondo.add(lblGoku);
         lblGoku.setBounds(20, 340, 140, 110);
 
-        lblSonic.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/img/Sonic.gif"))); // NOI18N
+        lblSonic.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Sonic.gif"))); // NOI18N
         PanelFondo.add(lblSonic);
         lblSonic.setBounds(30, 250, 120, 110);
 
-        lblNyanCat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/img/nyancatt.gif"))); // NOI18N
+        lblNyanCat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/nyancatt.gif"))); // NOI18N
         PanelFondo.add(lblNyanCat);
         lblNyanCat.setBounds(20, 150, 140, 92);
 
-        lblImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/img/ImagenFondo.png"))); // NOI18N
+        lblImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/ImagenFondo.png"))); // NOI18N
         PanelFondo.add(lblImagen);
         lblImagen.setBounds(0, 0, 850, 520);
 
@@ -186,6 +197,30 @@ public class CarreraView extends javax.swing.JFrame {
     public void setLblSonic(JLabel lblSonic) {
         this.lblSonic = lblSonic;
     }
+
+    public JLabel getLblImagen() {
+        return lblImagen;
+    }
+
+    public void setLblImagen(JLabel lblImagen) {
+        this.lblImagen = lblImagen;
+    }
+
+    public JLabel getLblAccidente() {
+        return lblAccidente;
+    }
+
+    public void setLblAccidente(JLabel lblAccidente) {
+        this.lblAccidente = lblAccidente;
+    }
+
+    public JLabel getLblImpulso() {
+        return lblImpulso;
+    }
+
+    public void setLblImpulso(JLabel lblImpulso) {
+        this.lblImpulso = lblImpulso;
+    }
     
     
     
@@ -196,8 +231,10 @@ public class CarreraView extends javax.swing.JFrame {
     private javax.swing.JButton btnImpulsar;
     private javax.swing.JButton btnIniciar;
     private javax.swing.JButton btnSalir;
+    private javax.swing.JLabel lblAccidente;
     private javax.swing.JLabel lblGoku;
     private javax.swing.JLabel lblImagen;
+    private javax.swing.JLabel lblImpulso;
     private javax.swing.JLabel lblNyanCat;
     private javax.swing.JLabel lblPikachu;
     private javax.swing.JLabel lblSonic;
