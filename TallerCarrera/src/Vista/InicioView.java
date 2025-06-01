@@ -5,7 +5,10 @@
 package Vista;
 
 import Control.ControlVentana;
+import java.io.File;
 import javax.swing.JButton;
+import javax.swing.JFileChooser;
+import javax.swing.JLabel;
 
 /**
  *
@@ -19,7 +22,7 @@ public class InicioView extends javax.swing.JFrame {
      * Creates new form InicioView
      */
     public InicioView(ControlVentana cVentana) {
-        
+
         this.cVentana = cVentana;
         initComponents();
     }
@@ -35,7 +38,7 @@ public class InicioView extends javax.swing.JFrame {
 
         PanelFondo = new javax.swing.JPanel();
         btnJugar = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
+        lblImagenInicio = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(510, 500));
@@ -55,9 +58,9 @@ public class InicioView extends javax.swing.JFrame {
         PanelFondo.add(btnJugar);
         btnJugar.setBounds(200, 390, 120, 40);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/img/AMAZONRACE.png"))); // NOI18N
-        PanelFondo.add(jLabel2);
-        jLabel2.setBounds(0, 0, 500, 510);
+        lblImagenInicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/AMAZONRACE.png"))); // NOI18N
+        PanelFondo.add(lblImagenInicio);
+        lblImagenInicio.setBounds(0, 0, 500, 510);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -80,7 +83,6 @@ public class InicioView extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-
     public JButton getBtnJugar() {
         return btnJugar;
     }
@@ -89,10 +91,29 @@ public class InicioView extends javax.swing.JFrame {
         this.btnJugar = btnJugar;
     }
 
+    public JLabel getLblImagenInicio() {
+        return lblImagenInicio;
+    }
+
+    public void setLblImagenInicio(JLabel lblImagenInicio) {
+        this.lblImagenInicio = lblImagenInicio;
+    }
+    
+    
+
+    public File rutaJfileChooserImagenes() {
+        File f;
+        JFileChooser fc = new JFileChooser(System.getProperty("user.dir"));
+        fc.showDialog(null, "Seleccionar Archivo de IMAGENES");
+
+        f = fc.getSelectedFile();
+        return f;
+    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PanelFondo;
     private javax.swing.JButton btnJugar;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel lblImagenInicio;
     // End of variables declaration//GEN-END:variables
 }

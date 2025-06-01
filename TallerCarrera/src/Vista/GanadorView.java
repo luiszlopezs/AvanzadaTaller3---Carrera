@@ -36,22 +36,22 @@ public class GanadorView extends javax.swing.JFrame {
         btnContinuar = new javax.swing.JButton();
         jPANEL_CONTENEDOR = new javax.swing.JPanel();
         PANEL_GOKU = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        lblImagenGoku = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         lblVictoriaGoku = new javax.swing.JLabel();
         lblTiempoGoku = new javax.swing.JLabel();
         PANEL_PIKA = new javax.swing.JPanel();
-        jLabel6 = new javax.swing.JLabel();
+        lblImagenPikachu = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         lblVictoriaPika = new javax.swing.JLabel();
         lblTiempoPika = new javax.swing.JLabel();
         PANEL_SONIC = new javax.swing.JPanel();
-        jLabel10 = new javax.swing.JLabel();
+        lblImagenSonic = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         lblVictoriaSonic = new javax.swing.JLabel();
         lblTiempoSonic = new javax.swing.JLabel();
         PANEL_NYANCAT = new javax.swing.JPanel();
-        jLabel14 = new javax.swing.JLabel();
+        lblImagenNyancat = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         lblVictoriaNyan = new javax.swing.JLabel();
         lblTiempoNyan = new javax.swing.JLabel();
@@ -73,7 +73,7 @@ public class GanadorView extends javax.swing.JFrame {
 
         PANEL_GOKU.setBackground(new java.awt.Color(0, 4, 25));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/img/gokuGANADOR.gif"))); // NOI18N
+        lblImagenGoku.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/gokuGANADOR.gif"))); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -95,7 +95,7 @@ public class GanadorView extends javax.swing.JFrame {
                 .addGroup(PANEL_GOKULayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PANEL_GOKULayout.createSequentialGroup()
                         .addGap(68, 68, 68)
-                        .addComponent(jLabel1))
+                        .addComponent(lblImagenGoku))
                     .addGroup(PANEL_GOKULayout.createSequentialGroup()
                         .addGap(176, 176, 176)
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -111,7 +111,7 @@ public class GanadorView extends javax.swing.JFrame {
             PANEL_GOKULayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PANEL_GOKULayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
+                .addComponent(lblImagenGoku)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -125,7 +125,7 @@ public class GanadorView extends javax.swing.JFrame {
 
         PANEL_PIKA.setBackground(new java.awt.Color(0, 4, 25));
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/img/pikachuGANADOR.gif"))); // NOI18N
+        lblImagenPikachu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/pikachuGANADOR.gif"))); // NOI18N
 
         jLabel7.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
@@ -153,7 +153,7 @@ public class GanadorView extends javax.swing.JFrame {
                 .addGroup(PANEL_PIKALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PANEL_PIKALayout.createSequentialGroup()
                         .addGap(68, 68, 68)
-                        .addComponent(jLabel6))
+                        .addComponent(lblImagenPikachu))
                     .addGroup(PANEL_PIKALayout.createSequentialGroup()
                         .addGap(176, 176, 176)
                         .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -163,7 +163,7 @@ public class GanadorView extends javax.swing.JFrame {
             PANEL_PIKALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PANEL_PIKALayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel6)
+                .addComponent(lblImagenPikachu)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -177,7 +177,8 @@ public class GanadorView extends javax.swing.JFrame {
 
         PANEL_SONIC.setBackground(new java.awt.Color(0, 4, 25));
 
-        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/img/sonicGANADOR.gif"))); // NOI18N
+        lblImagenSonic.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/sonicGANADOR.gif"))); // NOI18N
+        lblImagenSonic.setPreferredSize(new java.awt.Dimension(400, 400));
 
         jLabel11.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
@@ -205,7 +206,7 @@ public class GanadorView extends javax.swing.JFrame {
                 .addGroup(PANEL_SONICLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PANEL_SONICLayout.createSequentialGroup()
                         .addGap(68, 68, 68)
-                        .addComponent(jLabel10))
+                        .addComponent(lblImagenSonic, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(PANEL_SONICLayout.createSequentialGroup()
                         .addGap(176, 176, 176)
                         .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -215,7 +216,7 @@ public class GanadorView extends javax.swing.JFrame {
             PANEL_SONICLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PANEL_SONICLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel10)
+                .addComponent(lblImagenSonic, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel11)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -229,7 +230,7 @@ public class GanadorView extends javax.swing.JFrame {
 
         PANEL_NYANCAT.setBackground(new java.awt.Color(0, 4, 25));
 
-        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/img/nyancatGANADOR.gif"))); // NOI18N
+        lblImagenNyancat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/nyancatGANADOR.gif"))); // NOI18N
 
         jLabel15.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
@@ -257,7 +258,7 @@ public class GanadorView extends javax.swing.JFrame {
                 .addGroup(PANEL_NYANCATLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PANEL_NYANCATLayout.createSequentialGroup()
                         .addGap(68, 68, 68)
-                        .addComponent(jLabel14))
+                        .addComponent(lblImagenNyancat))
                     .addGroup(PANEL_NYANCATLayout.createSequentialGroup()
                         .addGap(176, 176, 176)
                         .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -267,7 +268,7 @@ public class GanadorView extends javax.swing.JFrame {
             PANEL_NYANCATLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PANEL_NYANCATLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel14)
+                .addComponent(lblImagenNyancat)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel15)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -425,6 +426,40 @@ public class GanadorView extends javax.swing.JFrame {
     public void setLblVictoriaSonic(JLabel lblVictoriaSonic) {
         this.lblVictoriaSonic = lblVictoriaSonic;
     }
+
+    public JLabel getLblImagenGoku() {
+        return lblImagenGoku;
+    }
+
+    public void setLblImagenGoku(JLabel lblImagenGoku) {
+        this.lblImagenGoku = lblImagenGoku;
+    }
+
+    public JLabel getLblImagenNyancat() {
+        return lblImagenNyancat;
+    }
+
+    public void setLblImagenNyancat(JLabel lblImagenNyancat) {
+        this.lblImagenNyancat = lblImagenNyancat;
+    }
+
+    public JLabel getLblImagenPikachu() {
+        return lblImagenPikachu;
+    }
+
+    public void setLblImagenPikachu(JLabel lblImagenPikachu) {
+        this.lblImagenPikachu = lblImagenPikachu;
+    }
+
+    public JLabel getLblImagenSonic() {
+        return lblImagenSonic;
+    }
+
+    public void setLblImagenSonic(JLabel lblImagenSonic) {
+        this.lblImagenSonic = lblImagenSonic;
+    }
+    
+    
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -433,15 +468,15 @@ public class GanadorView extends javax.swing.JFrame {
     private javax.swing.JPanel PANEL_PIKA;
     private javax.swing.JPanel PANEL_SONIC;
     private javax.swing.JButton btnContinuar;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPANEL_CONTENEDOR;
+    private javax.swing.JLabel lblImagenGoku;
+    private javax.swing.JLabel lblImagenNyancat;
+    private javax.swing.JLabel lblImagenPikachu;
+    private javax.swing.JLabel lblImagenSonic;
     private javax.swing.JLabel lblTiempoGoku;
     private javax.swing.JLabel lblTiempoNyan;
     private javax.swing.JLabel lblTiempoPika;

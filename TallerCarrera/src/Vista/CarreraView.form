@@ -48,10 +48,35 @@
         <Property name="useNullLayout" type="boolean" value="true"/>
       </Layout>
       <SubComponents>
+        <Component class="javax.swing.JLabel" name="lblAccidente">
+          <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/resources/accidente.gif"/>
+            </Property>
+          </Properties>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="150" y="150" width="90" height="90"/>
+            </Constraint>
+          </Constraints>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblImpulso">
+          <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/resources/fuego.gif"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="jLabel2"/>
+          </Properties>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="-70" y="260" width="120" height="90"/>
+            </Constraint>
+          </Constraints>
+        </Component>
         <Component class="javax.swing.JLabel" name="lblPikachu">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Vista/img/Pikachu.gif"/>
+              <Image iconType="3" name="/resources/Pikachu.gif"/>
             </Property>
           </Properties>
           <Constraints>
@@ -63,7 +88,7 @@
         <Component class="javax.swing.JLabel" name="lblGoku">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Vista/img/Goku.gif"/>
+              <Image iconType="3" name="/resources/Goku.gif"/>
             </Property>
           </Properties>
           <Constraints>
@@ -75,7 +100,7 @@
         <Component class="javax.swing.JLabel" name="lblSonic">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Vista/img/Sonic.gif"/>
+              <Image iconType="3" name="/resources/Sonic.gif"/>
             </Property>
           </Properties>
           <Constraints>
@@ -87,7 +112,7 @@
         <Component class="javax.swing.JLabel" name="lblNyanCat">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Vista/img/nyancatt.gif"/>
+              <Image iconType="3" name="/resources/nyancatt.gif"/>
             </Property>
           </Properties>
           <Constraints>
@@ -99,7 +124,7 @@
         <Component class="javax.swing.JLabel" name="lblImagen">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Vista/img/ImagenFondo.png"/>
+              <Image iconType="3" name="/resources/ImagenFondo.png"/>
             </Property>
           </Properties>
           <Constraints>

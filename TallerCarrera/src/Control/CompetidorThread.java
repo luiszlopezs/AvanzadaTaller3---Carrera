@@ -29,7 +29,7 @@ public class CompetidorThread implements Runnable {
     @Override
 
     public void run() {
-        
+
         while (!competidorModel.getCarrera().isEsFinalizada()) {
             cPrinc.getcVentana().inhabilitarBotonIniciarCarrera();
 //            cPrinc.aplicarAccidente1();
@@ -50,7 +50,7 @@ public class CompetidorThread implements Runnable {
             aplicarCondicionesEspeciales();
 
             competidorModel.setPosicionActual(competidorModel.getPosicionActual() + competidorModel.getVelocidad());  //Aumentar de posicion de acuerdo al valor de velocidad
-            
+
             cPrinc.getcVentana().moverLabels(competidorModel.getNombre());
 
             try { //Correr con algunos descansos intermedios
@@ -92,7 +92,11 @@ public class CompetidorThread implements Runnable {
     private void aplicarCondicionesEspeciales() {
         if (isAccidentado) {
             try {
-                Thread.sleep(1000 + new Random().nextInt(1000));
+                    cPrinc.getcVentana().getvCarrera().getLblAccidente().setVisible(true);
+                    Thread.sleep(2000 + new Random().nextInt(1000));
+                    cPrinc.getcVentana().getvCarrera().getLblAccidente().setVisible(false);
+                
+
             } catch (InterruptedException ex) {
                 Logger.getLogger(Competidor.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -100,10 +104,12 @@ public class CompetidorThread implements Runnable {
         }
 
         if (isImpulsado) {
-            competidorModel.setPosicionActual(competidorModel.getPosicionActual() +competidorModel.getImpulso()) ;
+            
+            competidorModel.setPosicionActual(competidorModel.getPosicionActual() + competidorModel.getImpulso());
             System.out.println("impulsando wiiiiiiiiiiiiii");
             isImpulsado = false;
         }
+        
     }
 
     public boolean isIsAccidentado() {
@@ -121,7 +127,5 @@ public class CompetidorThread implements Runnable {
     public void setIsImpulsado(boolean isImpulsado) {
         this.isImpulsado = isImpulsado;
     }
-    
-    
 
 }
