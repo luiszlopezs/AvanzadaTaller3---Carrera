@@ -94,15 +94,15 @@ public class CarreraView extends javax.swing.JFrame {
         btnAccidente.setBackground(new java.awt.Color(255, 221, 51));
         btnAccidente.setFont(new java.awt.Font("Serif", 0, 12)); // NOI18N
         btnAccidente.setForeground(new java.awt.Color(102, 102, 0));
-        btnAccidente.setText("Accidente");
+        btnAccidente.setText("Accidente NyanCat");
         btnAccidente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 0), 2));
         PanelFondo.add(btnAccidente);
-        btnAccidente.setBounds(250, 530, 100, 21);
+        btnAccidente.setBounds(250, 530, 130, 21);
 
         btnImpulsar.setBackground(new java.awt.Color(102, 204, 255));
         btnImpulsar.setFont(new java.awt.Font("Serif", 0, 12)); // NOI18N
         btnImpulsar.setForeground(new java.awt.Color(0, 51, 102));
-        btnImpulsar.setText("Impulsar");
+        btnImpulsar.setText("Impulsar Sonic");
         btnImpulsar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 51, 102), 2));
         PanelFondo.add(btnImpulsar);
         btnImpulsar.setBounds(510, 530, 100, 21);
