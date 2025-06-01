@@ -9,22 +9,47 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 
 /**
- *
- * @author jjuan
+ * Clase que representa la ventana gráfica principal donde se visualiza la carrera.
+ * 
+ * Contiene los elementos visuales como los botones de acción (iniciar, salir, accidente, impulso),
+ * los labels que representan a los competidores, y otros elementos gráficos como los efectos
+ * visuales de accidente e impulso.
+ * 
+ * Esta clase extiende de `JFrame` y es gestionada por el controlador `ControlVentana`.
+ * 
+ * @author Julian
  */
 public class CarreraView extends javax.swing.JFrame {
-    
-    
-    private ControlVentana cVentana;
+
     /**
-     * Creates new form CarreraView
+     * Referencia al controlador de la ventana.
+     * Permite la comunicación entre la vista y la lógica del programa.
+     */
+    private ControlVentana cVentana;
+
+    /**
+     * Constructor de la clase CarreraView.
+     * 
+     * Recibe el controlador de ventana como parámetro, lo almacena
+     * y luego inicializa los componentes gráficos definidos en el formulario.
+     * 
+     * @param cVentana Referencia al controlador que administra esta vista.
      */
     public CarreraView(ControlVentana cVentana) {
         this.cVentana = cVentana;
-        
         initComponents();
     }
 
+    /**
+ * Inicializa todos los componentes gráficos de la ventana CarreraView.
+ * 
+ * Este método es generado automáticamente por el diseñador de interfaces 
+ * de NetBeans y contiene la configuración de todos los elementos de la interfaz:
+ * paneles, etiquetas (labels), botones y sus propiedades (posición, tamaño, íconos, colores, etc.).
+ * 
+ * No se recomienda modificar este código manualmente, ya que puede ser sobrescrito
+ * si se vuelve a utilizar el editor gráfico.
+ */
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -134,97 +159,190 @@ public class CarreraView extends javax.swing.JFrame {
      */
 
 
-    public JButton getBtnAccidente() {
-        return btnAccidente;
-    }
+    /**
+ * Devuelve el botón encargado de activar el accidente de NyanCat.
+ * @return btnAccidente Botón para aplicar el accidente.
+ */
+public JButton getBtnAccidente() {
+    return btnAccidente;
+}
 
-    public void setBtnAccidente(JButton btnAccidente) {
-        this.btnAccidente = btnAccidente;
-    }
+/**
+ * Establece el botón que activa el accidente de NyanCat.
+ * @param btnAccidente Nuevo botón de accidente.
+ */
+public void setBtnAccidente(JButton btnAccidente) {
+    this.btnAccidente = btnAccidente;
+}
 
-    public JButton getBtnImpulsar() {
-        return btnImpulsar;
-    }
+/**
+ * Devuelve el botón encargado de impulsar a Sonic.
+ * @return btnImpulsar Botón para aplicar el impulso.
+ */
+public JButton getBtnImpulsar() {
+    return btnImpulsar;
+}
 
-    public void setBtnImpulsar(JButton btnImpulsar) {
-        this.btnImpulsar = btnImpulsar;
-    }
+/**
+ * Establece el botón que impulsa a Sonic.
+ * @param btnImpulsar Nuevo botón de impulso.
+ */
+public void setBtnImpulsar(JButton btnImpulsar) {
+    this.btnImpulsar = btnImpulsar;
+}
 
-    public JButton getBtnIniciar() {
-        return btnIniciar;
-    }
 
-    public void setBtnIniciar(JButton btnIniciar) {
-        this.btnIniciar = btnIniciar;
-    }
+    /**
+ * Devuelve el botón para iniciar la carrera.
+ * @return btnIniciar Botón de inicio.
+ */
+public JButton getBtnIniciar() {
+    return btnIniciar;
+}
 
-    public JButton getBtnSalir() {
-        return btnSalir;
-    }
+/**
+ * Establece el botón para iniciar la carrera.
+ * @param btnIniciar Nuevo botón de inicio.
+ */
+public void setBtnIniciar(JButton btnIniciar) {
+    this.btnIniciar = btnIniciar;
+}
 
-    public void setBtnSalir(JButton btnSalir) {
-        this.btnSalir = btnSalir;
-    }
+/**
+ * Devuelve el botón para salir de la vista de carrera.
+ * @return btnSalir Botón de salir.
+ */
+public JButton getBtnSalir() {
+    return btnSalir;
+}
 
-    public JLabel getLblGoku() {
-        return lblGoku;
-    }
+/**
+ * Establece el botón para salir de la vista de carrera.
+ * @param btnSalir Nuevo botón de salir.
+ */
+public void setBtnSalir(JButton btnSalir) {
+    this.btnSalir = btnSalir;
+}
 
-    public void setLblGoku(JLabel lblGoku) {
-        this.lblGoku = lblGoku;
-    }
 
-    public JLabel getLblNyanCat() {
-        return lblNyanCat;
-    }
+   /**
+ * Devuelve la etiqueta (JLabel) correspondiente a Goku.
+ * @return lblGoku Etiqueta del competidor Goku.
+ */
+public JLabel getLblGoku() {
+    return lblGoku;
+}
 
-    public void setLblNyanCat(JLabel lblNyanCat) {
-        this.lblNyanCat = lblNyanCat;
-    }
+/**
+ * Establece la etiqueta (JLabel) correspondiente a Goku.
+ * @param lblGoku Nueva etiqueta para Goku.
+ */
+public void setLblGoku(JLabel lblGoku) {
+    this.lblGoku = lblGoku;
+}
 
-    public JLabel getLblPikachu() {
-        return lblPikachu;
-    }
+/**
+ * Devuelve la etiqueta (JLabel) correspondiente a NyanCat.
+ * @return lblNyanCat Etiqueta del competidor NyanCat.
+ */
+public JLabel getLblNyanCat() {
+    return lblNyanCat;
+}
 
-    public void setLblPikachu(JLabel lblPikachu) {
-        this.lblPikachu = lblPikachu;
-    }
+/**
+ * Establece la etiqueta (JLabel) correspondiente a NyanCat.
+ * @param lblNyanCat Nueva etiqueta para NyanCat.
+ */
+public void setLblNyanCat(JLabel lblNyanCat) {
+    this.lblNyanCat = lblNyanCat;
+}
 
-    public JLabel getLblSonic() {
-        return lblSonic;
-    }
 
-    public void setLblSonic(JLabel lblSonic) {
-        this.lblSonic = lblSonic;
-    }
+    /**
+ * Devuelve la etiqueta (JLabel) correspondiente a Pikachu.
+ * @return lblPikachu Etiqueta del competidor Pikachu.
+ */
+public JLabel getLblPikachu() {
+    return lblPikachu;
+}
 
-    public JLabel getLblImagen() {
-        return lblImagen;
-    }
+/**
+ * Establece la etiqueta (JLabel) correspondiente a Pikachu.
+ * @param lblPikachu Nueva etiqueta para Pikachu.
+ */
+public void setLblPikachu(JLabel lblPikachu) {
+    this.lblPikachu = lblPikachu;
+}
 
-    public void setLblImagen(JLabel lblImagen) {
-        this.lblImagen = lblImagen;
-    }
+/**
+ * Devuelve la etiqueta (JLabel) correspondiente a Sonic.
+ * @return lblSonic Etiqueta del competidor Sonic.
+ */
+public JLabel getLblSonic() {
+    return lblSonic;
+}
 
-    public JLabel getLblAccidente() {
-        return lblAccidente;
-    }
+/**
+ * Establece la etiqueta (JLabel) correspondiente a Sonic.
+ * @param lblSonic Nueva etiqueta para Sonic.
+ */
+public void setLblSonic(JLabel lblSonic) {
+    this.lblSonic = lblSonic;
+}
 
-    public void setLblAccidente(JLabel lblAccidente) {
-        this.lblAccidente = lblAccidente;
-    }
 
-    public JLabel getLblImpulso() {
-        return lblImpulso;
-    }
+    /**
+ * Devuelve la etiqueta (JLabel) que contiene la imagen de fondo de la carrera.
+ * @return lblImagen Etiqueta con la imagen de fondo.
+ */
+public JLabel getLblImagen() {
+    return lblImagen;
+}
 
-    public void setLblImpulso(JLabel lblImpulso) {
-        this.lblImpulso = lblImpulso;
-    }
+/**
+ * Establece la etiqueta (JLabel) que contiene la imagen de fondo de la carrera.
+ * @param lblImagen Nueva etiqueta con la imagen de fondo.
+ */
+public void setLblImagen(JLabel lblImagen) {
+    this.lblImagen = lblImagen;
+}
+
+/**
+ * Devuelve la etiqueta (JLabel) que representa el efecto visual de un accidente en la carrera.
+ * @return lblAccidente Etiqueta para mostrar un accidente.
+ */
+public JLabel getLblAccidente() {
+    return lblAccidente;
+}
+
+/**
+ * Establece la etiqueta (JLabel) que representa el efecto visual de un accidente en la carrera.
+ * @param lblAccidente Nueva etiqueta para el accidente.
+ */
+public void setLblAccidente(JLabel lblAccidente) {
+    this.lblAccidente = lblAccidente;
+}
+
+/**
+ * Devuelve la etiqueta (JLabel) que representa el efecto visual de un impulso en la carrera.
+ * @return lblImpulso Etiqueta para mostrar un impulso.
+ */
+public JLabel getLblImpulso() {
+    return lblImpulso;
+}
+
+/**
+ * Establece la etiqueta (JLabel) que representa el efecto visual de un impulso en la carrera.
+ * @param lblImpulso Nueva etiqueta para el impulso.
+ */
+public void setLblImpulso(JLabel lblImpulso) {
+    this.lblImpulso = lblImpulso;
+}
+
     
     
     
-
+// Variables de la interfaz gráfica utilizadas en la vista de la carrera:
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PanelFondo;
     private javax.swing.JButton btnAccidente;
