@@ -2,12 +2,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Control;
+package edu.progavud.taller3pa.control;
 
-import Vista.CarreraView;
-import Vista.FinalView;
-import Vista.GanadorView;
-import Vista.InicioView;
+import edu.progavud.taller3pa.vista.CarreraView;
+import edu.progavud.taller3pa.vista.FinalView;
+import edu.progavud.taller3pa.vista.GanadorView;
+import edu.progavud.taller3pa.vista.InicioView;
 import java.awt.CardLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -76,7 +76,7 @@ public class ControlVentana implements ActionListener {
         cPrinc.inicializarArrayImagenes(vView.rutaJfileChooserImagenes());
 
         // Asigna las imágenes a la vista de inicio
-        setearImagenesVInicio();
+        asignarImagenesVInicio();
 
         // Configura el botón de jugar
         vView.getBtnJugar().setActionCommand("BTN_JUGAAR");
@@ -103,14 +103,14 @@ public void actionPerformed(ActionEvent e) {
 
     switch (comando) {
 
-        // 👉 VISTA INICIO
+        // VISTA INICIO
         case "BTN_JUGAAR":
             vView.dispose(); // Cierra la vista de inicio
             cargarVistaCarrera(); // Muestra la vista de carrera
             cPrinc.inhabilitarBotonesAcciones(); // Desactiva botones al iniciar
             break;
 
-        // 👉 VISTA CARRERA: Iniciar la carrera en un hilo separado
+        // VISTA CARRERA: Iniciar la carrera en un hilo separado
         case "BTN_INICIAR":
             new Thread(() -> {
                 cPrinc.iniciarCarrera();
@@ -118,13 +118,12 @@ public void actionPerformed(ActionEvent e) {
             contadorCarreras++;
             break;
 
-        // 👉 VISTA CARRERA: Aplicar accidente
+        // VISTA CARRERA: Aplicar accidente
         case "BTN_ACCIDENTE":
             cPrinc.aplicarAccidente1(); // Aplica accidente a "NyanCat"
-            System.out.println("si sirvooooooooooooooo");
             break;
 
-        // 👉 VISTA CARRERA: Aplicar impulso visual y funcional
+        // VISTA CARRERA: Aplicar impulso visual y funcional
         case "BTN_IMPULSAR":
             cPrinc.aplicarImpulso2(); // Aplica impulso a "Sonic"
             cPrinc.getcVentana().getvCarrera().getLblImpulso().setVisible(true);
@@ -139,18 +138,18 @@ public void actionPerformed(ActionEvent e) {
             timer.start();
             break;
 
-        // 👉 VISTA CARRERA: Salir y mostrar vista final con resumen
+        // VISTA CARRERA: Salir y mostrar vista final con resumen
         case "BTN_SALIR":
             vCarrera.dispose();
             cPrinc.mostrarFinal();
             break;
 
-        // 👉 VISTA GANADOR: Cerrar ventana del ganador
+        // VISTA GANADOR: Cerrar ventana del ganador
         case "VGANADOR_CONTINUAR":
             vGanador.dispose();
             break;
 
-        // 👉 VISTA FINAL: Cerrar ventana final
+        // VISTA FINAL: Cerrar ventana final
         case "BTN_SALIR_FINAL":
             vFinal.dispose();
             break;
@@ -173,7 +172,7 @@ public void cargarVistaCarrera() {
     vCarrera = new CarreraView(this);
 
     // Asigna imágenes a los competidores
-    setearImagenesVCarrera();
+    asignarImagenesVCarrera();
 
     // Configura el botón de accidente
     vCarrera.getBtnAccidente().setActionCommand("BTN_ACCIDENTE");
@@ -214,7 +213,7 @@ public void cargarVistaGanador() {
     vGanador = new GanadorView(this);
 
     // Asigna imágenes a la vista del ganador
-    setearImagenesVGanador();
+    asignarImagenesVGanador();
 
     // Configura el botón "Continuar"
     vGanador.getBtnContinuar().setActionCommand("VGANADOR_CONTINUAR");
@@ -290,7 +289,7 @@ public void cargarVistaFinal() {
     }
 
     //Método que hace visible el botón de ganador para aquellos con la mayor cantidad de victorias
-    public void determinarGanadorFinal(String nombreBoton) {
+    public void mostrarGanadorFinal(String nombreBoton) {
         switch (nombreBoton) {
             case "Goku":
                 vFinal.getBtnGanoGoku().setVisible(true);
@@ -421,7 +420,7 @@ public void habilitarBotonIniciarCarrera() {
  * 
  * Se asigna al JLabel correspondiente mediante un `ImageIcon`.
  */
-public void setearImagenesVInicio() {
+public void asignarImagenesVInicio() {
     System.out.println(cPrinc.getImagenesRutas().get(0)); // Ruta de depuración
 
     ImageIcon imagenFondoInicio = new ImageIcon(getClass().getResource(
@@ -448,7 +447,7 @@ public void setearImagenesVInicio() {
  * - [10]: Imagen de accidente
  * - [11]: Imagen de impulso
  */
-public void setearImagenesVCarrera() {
+public void asignarImagenesVCarrera() {
     ImageIcon imagen;
 
     // Imagen de fondo de carrera
@@ -493,7 +492,7 @@ public void setearImagenesVCarrera() {
  * - [8]: Imagen de Pikachu
  * - [9]: Imagen de Sonic
  */
-public void setearImagenesVGanador() {
+public void asignarImagenesVGanador() {
     vGanador.getLblImagenGoku().setIcon(new ImageIcon(
         getClass().getResource(cPrinc.getImagenesRutas().get(6))
     ));
@@ -524,7 +523,7 @@ public void setearImagenesVGanador() {
  * - [4]: Imagen de Pikachu
  * - [5]: Imagen de Sonic
  */
-public void setearImagenesVFinal() {
+public void asignarImagenesVFinal() {
     vFinal.getLblGokuFinal().setIcon(new ImageIcon(
         getClass().getResource(cPrinc.getImagenesRutas().get(2))
     ));
@@ -569,15 +568,5 @@ public void setContadorCarreras(int contadorCarreras) {
 public CarreraView getvCarrera() {
     return vCarrera;
 }
-
-/**
- * Establece la vista actual de la carrera.
- * 
- * @param vCarrera Objeto CarreraView a asignar como vista de la carrera.
- */
-public void setvCarrera(CarreraView vCarrera) {
-    this.vCarrera = vCarrera;
-}
-
 
 }

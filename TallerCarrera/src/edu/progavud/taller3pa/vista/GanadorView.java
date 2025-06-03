@@ -2,9 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package Vista;
+package edu.progavud.taller3pa.vista;
 
-import Control.ControlVentana;
+import edu.progavud.taller3pa.control.ControlVentana;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -192,7 +192,6 @@ public class GanadorView extends javax.swing.JFrame {
         PANEL_SONIC.setBackground(new java.awt.Color(0, 4, 25));
 
         lblImagenSonic.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/sonicGANADOR.gif"))); // NOI18N
-        lblImagenSonic.setPreferredSize(new java.awt.Dimension(400, 400));
 
         jLabel11.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
@@ -220,7 +219,7 @@ public class GanadorView extends javax.swing.JFrame {
                 .addGroup(PANEL_SONICLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PANEL_SONICLayout.createSequentialGroup()
                         .addGap(68, 68, 68)
-                        .addComponent(lblImagenSonic, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(lblImagenSonic))
                     .addGroup(PANEL_SONICLayout.createSequentialGroup()
                         .addGap(176, 176, 176)
                         .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -230,7 +229,7 @@ public class GanadorView extends javax.swing.JFrame {
             PANEL_SONICLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PANEL_SONICLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lblImagenSonic, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblImagenSonic)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel11)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)

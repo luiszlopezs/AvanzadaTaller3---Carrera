@@ -2,9 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Control;
+package edu.progavud.taller3pa.control;
 
-import Modelo.Competidor;
+import edu.progavud.taller3pa.modelo.Competidor;
 import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -76,21 +76,7 @@ public class CompetidorThread implements Runnable {
 
         while (!competidorModel.getCarrera().isEsFinalizada()) {
             cPrinc.getcVentana().inhabilitarBotonIniciarCarrera();
-//            cPrinc.aplicarAccidente1();
-//            if (isAccidentado) {
-//                try {
-//                    Thread.sleep(1000 + (int) (Math.random() * 1000));
-//                } catch (InterruptedException ex) {
-//                    Logger.getLogger(Competidor.class.getName()).log(Level.SEVERE, null, ex);
-//                }
-//                isAccidentado = false;
-//            }
 
-//            cPrinc.aplicarImpulso2();
-//            if (nombre.equals("periquin")) {
-//                posicionActual += impulso;
-//                impulso = 0;
-//            }
             aplicarCondicionesEspeciales();
 
             competidorModel.setPosicionActual(competidorModel.getPosicionActual() + competidorModel.getVelocidad());  //Aumentar de posicion de acuerdo al valor de velocidad
@@ -98,7 +84,6 @@ public class CompetidorThread implements Runnable {
             cPrinc.getcVentana().moverLabels(competidorModel.getNombre());
 
             try { //Correr con algunos descansos intermedios
-                System.out.println("correee" + this.competidorModel.getNombre());
                 Thread.sleep(new Random().nextInt(500));
             } catch (InterruptedException ex) {
                 Logger.getLogger(Competidor.class.getName()).log(Level.SEVERE, null, ex);
@@ -106,23 +91,9 @@ public class CompetidorThread implements Runnable {
             }
 
             cPrinc.finalizarCarrera();
-//            if (posicionActual >= Carrera.getDistanciaCarrera()) {
-//                this.tiempoLlegada = (int) (System.currentTimeMillis() - carrera.getTiempoInicial());
-//                break;
-//            }
 
-            //carrera.getControlCarrera().actualizarVista();  // si está delegado así
-//            if (posicionActual >= carrera.getDistanciaCarrera()) {
-//                long tiempoFin = System.currentTimeMillis();
-//
-//                break;
-            //}
         }
         long tiempoFin = System.currentTimeMillis();
-//        this.tiempoLlegada = (int) (System.currentTimeMillis() - carrera.getTiempoInicial());
-
-        System.out.println(competidorModel.getNombre() + " termino el run con tiempo " + competidorModel.getTiempoLlegada());
-
     }
 
     /**
@@ -155,13 +126,13 @@ public void setCompetidorModel(Competidor competidorModel) {
 private void aplicarCondicionesEspeciales() {
     if (isAccidentado) {
         try {
-            // Muestra la etiqueta de accidente en la interfaz
+            // Muestra la etiqueta de accidente en la interfaz a través del controlPrincipal
             cPrinc.getcVentana().getvCarrera().getLblAccidente().setVisible(true);
 
             // Pausa el hilo entre 2 y 3 segundos para simular el accidente
             Thread.sleep(2000 + new Random().nextInt(1000));
 
-            // Oculta la etiqueta de accidente
+            // Oculta la etiqueta de accidente a través del controlPrincipal
             cPrinc.getcVentana().getvCarrera().getLblAccidente().setVisible(false);
 
         } catch (InterruptedException ex) {
@@ -178,9 +149,7 @@ private void aplicarCondicionesEspeciales() {
             competidorModel.getPosicionActual() + competidorModel.getImpulso()
         );
 
-        System.out.println("impulsando wiiiiiiiiiiiiii");
-
-        // Se desactiva el estado de impulso
+        // Se desactiva el estado de impulso 
         isImpulsado = false;
     }
 }

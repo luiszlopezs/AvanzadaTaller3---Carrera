@@ -2,9 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package Vista;
+package edu.progavud.taller3pa.vista;
 
-import Control.ControlVentana;
+import edu.progavud.taller3pa.control.ControlVentana;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 

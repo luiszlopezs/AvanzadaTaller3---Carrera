@@ -2,9 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Modelo;
+package edu.progavud.taller3pa.modelo;
 
-import Control.ControlPrincipal;
+import edu.progavud.taller3pa.control.ControlPrincipal;
 import java.util.Random;
 import java.util.Scanner;
 import java.util.logging.Level;
@@ -22,7 +22,7 @@ import java.util.logging.Logger;
  * 
  * @author hailen
  */
-public class Competidor extends Thread {
+public class Competidor  {
 
     /**
      * Nombre del competidor.

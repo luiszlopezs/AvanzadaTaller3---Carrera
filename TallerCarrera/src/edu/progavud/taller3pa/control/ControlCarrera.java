@@ -2,10 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Control;
+package edu.progavud.taller3pa.control;
 
-import Modelo.Carrera;
-import Modelo.Competidor;
+import edu.progavud.taller3pa.modelo.Carrera;
+import edu.progavud.taller3pa.modelo.Competidor;
 import java.util.ArrayList;
 
 /**
@@ -38,7 +38,7 @@ public class ControlCarrera {
     public ControlCarrera(ControlPrincipal cPrinc) {
         this.cPrinc = cPrinc;
         carrera = new Carrera();
-        // carrera.setTiempoInicial(System.currentTimeMillis()); // Línea comentada, posiblemente usada para registrar tiempo inicial
+     
     }
 
     /**
@@ -77,8 +77,6 @@ public ArrayList<CompetidorThread> determinarGanadores(ArrayList<CompetidorThrea
             // Se incrementa el número de victorias del competidor
             c.getCompetidorModel().incrementarVictorias();
 
-            // Mensaje en consola para depuración
-            System.out.println("Victorias: " + c.getCompetidorModel().getCantidadVictorias());
         }
     }
 
@@ -121,11 +119,6 @@ public synchronized void terminarCarrera(ArrayList<CompetidorThread> ListaThread
             // Marca la carrera como finalizada
             c.getCompetidorModel().getCarrera().setEsFinalizada(true);
 
-            // Mensajes en consola para depuración
-            System.out.println("Se terminó la carrera");
-            System.out.println("¡" + c.getCompetidorModel().getNombre() + " ganó la carrera!");
-            System.out.println("Carrera tiempo inicial: " + cPrinc.getcCarrera().getCarrera().getTiempoInicial());
-            System.out.println("Duración de la carrera: " + tiempoLlegada + " ms");
         }
     }
 }

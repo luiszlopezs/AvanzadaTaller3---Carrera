@@ -2,11 +2,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Control;
+package edu.progavud.taller3pa.control;
 
-import Modelo.Carrera;
-import Modelo.Competidor;
-import Modelo.ConexionProperties;
+import edu.progavud.taller3pa.modelo.Carrera;
+import edu.progavud.taller3pa.modelo.Competidor;
+import edu.progavud.taller3pa.modelo.ConexionProperties;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -166,8 +166,7 @@ public void aplicarImpulso2() {
     }
 
     // Método que valida la cantidad de victorias de cada uno de los competidores y
-    // retorna su nombre (o una lista de nombres si hay empates), además llama al
-    // método determinarGanador final
+    // retorna su nombre (o una lista de nombres si hay empates), además llama al método determinarGanador final
     public void mostrarFinal() {
         List<CompetidorThread> hilos = cHilos.getCompetidoresThread();
         List<Competidor> ganadores = new ArrayList<>();
@@ -185,8 +184,7 @@ public void aplicarImpulso2() {
         // Agregar todos los que tengan ese número de victorias a la lista de ganadores
         for (CompetidorThread hilo : hilos) {
             Competidor c = hilo.getCompetidorModel();
-            if (c.getCantidadVictorias() == maxVictorias) { // valida que el competidor tiene el mismo número de
-                // victorias que el máximo calculado anteriormente
+            if (c.getCantidadVictorias() == maxVictorias) { // valida que el competidor tiene el mismo número de victorias que el máximo calculado anteriormente
                 ganadores.add(c); // Si es así, se añade a la lista de ganadores
             }
         }
@@ -197,14 +195,13 @@ public void aplicarImpulso2() {
         // Activar botones según cantidad de ganadores
         if (ganadores.size() == 1) {
             // Un solo ganador
-            cVentana.determinarGanadorFinal(ganadores.get(0).getNombre()); // Se pasa como parámetro al método que
-            // muestra el símbolo de ganador el nombre
-            // del ganador
+            cVentana.mostrarGanadorFinal(ganadores.get(0).getNombre()); // Se pasa como parámetro al método que
+            // muestra el símbolo de ganador el nombre del ganador
         } else {
             // Si hay empate (el tamaño de la lista de ganadores es mayor que 1): mostrar
             // todos los ganadores
             for (Competidor c : ganadores) {
-                cVentana.determinarGanadorFinal(c.getNombre());
+                cVentana.mostrarGanadorFinal(c.getNombre());
             }
         }
     }
@@ -219,7 +216,6 @@ public void aplicarImpulso2() {
  */
     public ArrayList<CompetidorThread> determinarGanadores() {
         return cCarrera.determinarGanadores(cHilos.getCompetidoresThread());
-        //System.out.println("El ganador es: "+ cCarrera.determinarGanadores(cHilos.getCompetidoresThread()).get(0).getCompetidorModel().getNombre());
 
     }
 
@@ -246,8 +242,6 @@ public void habilitarBotonesAcciones() {
     cVentana.habilitarBotonesAcciones();
 }
 
-//////////////////////////7
-///
     /**
  * Devuelve la lista de rutas de imágenes utilizadas en la aplicación.
  * 

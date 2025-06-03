@@ -2,9 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Control;
+package edu.progavud.taller3pa.control;
 
-import Modelo.Competidor;
+import edu.progavud.taller3pa.modelo.Competidor;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -101,12 +101,10 @@ public void iniciarHilos() {
  */
 public void aplicarAccidente(String nombre) {
     for (CompetidorThread c : competidoresThread) {
-        System.out.println("Comparando con: " + c.getCompetidorModel().getNombre());
-
+       
         // Si el nombre coincide, se marca al competidor como accidentado
         if (c.getCompetidorModel().getNombre().equals(nombre)) {
             c.setIsAccidentado(true);
-            System.out.println("ay me pegueeeeeeeee");
         }
     }
 }
@@ -124,7 +122,6 @@ public void impulsar(String nombre) {
         // Verifica si el nombre del competidor coincide con el indicado
         if (c.getCompetidorModel().getNombre().equals(nombre)) {
             c.setIsImpulsado(true);
-            System.out.println("siuuuuuuuuuuuuu");
         }
     }
 }
